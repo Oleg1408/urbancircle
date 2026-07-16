@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Real Women Near You — Start Chatting Tonight</title>
+<title>Meet Someone Tonight</title>
 
 <style>
   body {
@@ -53,48 +53,79 @@
     border-radius:25px;
     max-width:420px;
     text-align:center;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 0 40px rgba(0,0,0,0.7),
-                0 0 20px rgba(255,100,100,0.3);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:
+      0 0 40px rgba(0,0,0,0.7),
+      0 0 20px rgba(255,100,100,0.3);
     backdrop-filter: blur(8px);
   }
 
-  h1 {
+  h1{
     font-size:26px;
     margin-bottom:15px;
   }
 
-  .fomo {
+  .fomo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
     font-size:16px;
     margin-bottom:10px;
     color:#ffcc00;
     font-weight:bold;
   }
 
-  .subtext {
-    font-size:14px;
-    margin-bottom:30px;
-    opacity:0.85;
+  .status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#2dff5a;
+    box-shadow:
+      0 0 8px rgba(45,255,90,.9),
+      0 0 16px rgba(45,255,90,.6);
+    animation:pulse 1.5s infinite;
   }
 
-  button {
-    background: linear-gradient(90deg, #ff3366, #ff9933);
+  @keyframes pulse{
+    0%{
+      transform:scale(1);
+      opacity:1;
+    }
+    50%{
+      transform:scale(1.25);
+      opacity:.75;
+    }
+    100%{
+      transform:scale(1);
+      opacity:1;
+    }
+  }
+
+  .subtext{
+    font-size:14px;
+    margin-bottom:30px;
+    opacity:.85;
+  }
+
+  button{
+    background:linear-gradient(90deg,#ff3366,#ff9933);
     border:none;
     padding:16px 40px;
     font-size:18px;
     color:white;
     border-radius:30px;
     cursor:pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255,80,80,0.6);
+    transition:.3s;
+    box-shadow:0 0 20px rgba(255,80,80,.6);
   }
 
-  button:hover {
-    background: linear-gradient(90deg, #ff0055, #ff6600);
-    transform: scale(1.05);
+  button:hover{
+    background:linear-gradient(90deg,#ff0055,#ff6600);
+    transform:scale(1.05);
   }
 
-  a {
+  a{
     text-decoration:none;
   }
 </style>
@@ -103,28 +134,37 @@
 <body>
 
 <div class="container">
-  <h1>Meet Real Women Near You — Start Chatting Tonight</h1>
-  
+
+  <h1>Meet Someone Tonight</h1>
+
   <p class="fomo">
+    <span class="status-dot"></span>
     <span id="online"></span> women online now
   </p>
-  
+
   <p class="subtext">
-    Join the conversation and start chatting instantly.
+    Start chatting in less than a minute
   </p>
 
-  <a href="https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid">
-    <button>Start Free Chat</button>
+  <a id="ctaButton" href="#">
+    <button>Continue</button>
   </a>
+
 </div>
 
 <script>
-  // Рандомные цифры при каждом заходе
+  // Ссылка на оффер
+  const offerLink = "https://t.datsk11.com/396873/7346?aff_sub5=SF_006OG000004lmDN";
+
+  // Назначаем ссылку кнопке
+  document.getElementById("ctaButton").href = offerLink;
+
+  // Рандомное количество пользователей онлайн
   function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  document.getElementById("online").innerText = getRandom(20, 38);
+  document.getElementById("online").textContent = getRandom(20, 38);
 </script>
 
 </body>
