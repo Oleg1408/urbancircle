@@ -1,171 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Someone Tonight</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bono Exclusivo Perú 🇵🇪</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-<style>
-  body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    position: relative;
-    overflow:hidden;
-  }
+        body {
+            background-color: #0a0a0c;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding: 15px;
+        }
 
-  /* Легкое размытие + затемнение */
-  body::before {
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: inherit;
-    filter: blur(6px) brightness(0.6);
-    z-index:0;
-  }
+        /* Затенение и размытие фонового казино-изображения */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10, 10, 12, 0.75) 0%, rgba(10, 10, 12, 0.92) 100%), 
+                        url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            filter: blur(6px);
+            transform: scale(1.08);
+            z-index: 1;
+        }
 
-  /* Дополнительное затемнение */
-  body::after {
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.35);
-    z-index:0;
-  }
+        /* Главная карточка прокладки */
+        .card {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 390px;
+            background: rgba(22, 24, 30, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 204, 0, 0.35);
+            border-radius: 24px;
+            padding: 28px 20px 22px 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
 
-  .container {
-    position: relative;
-    z-index:1;
-    background: linear-gradient(145deg, rgba(0,0,0,0.85), rgba(20,20,20,0.85));
-    padding:45px 35px;
-    border-radius:25px;
-    max-width:420px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.2);
-    box-shadow:
-      0 0 40px rgba(0,0,0,0.7),
-      0 0 20px rgba(255,100,100,0.3);
-    backdrop-filter: blur(8px);
-  }
+        /* Гео-плашка */
+        .badge-geo {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 204, 0, 0.15);
+            border: 1px solid #ffcc00;
+            color: #ffcc00;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
 
-  h1{
-    font-size:26px;
-    margin-bottom:15px;
-  }
+        h1 {
+            font-size: 23px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
 
-  .fomo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    font-size:16px;
-    margin-bottom:10px;
-    color:#ffcc00;
-    font-weight:bold;
-  }
+        .subtitle {
+            color: #c0c4d0;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
 
-  .status-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:#2dff5a;
-    box-shadow:
-      0 0 8px rgba(45,255,90,.9),
-      0 0 16px rgba(45,255,90,.6);
-    animation:pulse 1.5s infinite;
-  }
+        .highlight-green {
+            color: #00ff66;
+            font-weight: 800;
+        }
 
-  @keyframes pulse{
-    0%{
-      transform:scale(1);
-      opacity:1;
-    }
-    50%{
-      transform:scale(1.25);
-      opacity:.75;
-    }
-    100%{
-      transform:scale(1);
-      opacity:1;
-    }
-  }
+        /* Виджет счетчика выплат */
+        .payout-box {
+            background: rgba(10, 11, 15, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 20px;
+        }
 
-  .subtext{
-    font-size:14px;
-    margin-bottom:30px;
-    opacity:.85;
-  }
+        .payout-label {
+            font-size: 12px;
+            color: #8a8f9d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
 
-  button{
-    background:linear-gradient(90deg,#ff3366,#ff9933);
-    border:none;
-    padding:16px 40px;
-    font-size:18px;
-    color:white;
-    border-radius:30px;
-    cursor:pointer;
-    transition:.3s;
-    box-shadow:0 0 20px rgba(255,80,80,.6);
-  }
+        .payout-amount {
+            color: #00ff66;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+        }
 
-  button:hover{
-    background:linear-gradient(90deg,#ff0055,#ff6600);
-    transform:scale(1.05);
-  }
+        /* Пульсирующая кнопка перехода */
+        .btn-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 18px 10px;
+            background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
+            color: #000000;
+            font-size: 18px;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
+            animation: pulse 1.8s infinite;
+            border: none;
+            cursor: pointer;
+        }
 
-  a{
-    text-decoration:none;
-  }
-</style>
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 16px rgba(0, 255, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+        }
+
+        .guarantee-list {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 16px;
+            font-size: 11px;
+            color: #8a8f9d;
+        }
+
+        .footer-text {
+            font-size: 10px;
+            color: #555a65;
+            margin-top: 18px;
+            line-height: 1.3;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="bg-overlay"></div>
 
-  <h1>Meet Someone Tonight</h1>
+    <div class="card">
+        <div class="badge-geo">🇵🇪 OFERTA EXCLUSIVA PARA PERÚ</div>
+        
+        <h1>¿Listo para cambiar tu suerte hoy?</h1>
+        <p class="subtitle">
+            Obtén hasta <span class="highlight-green">500% de bono</span> en tu primer depósito y giros gratis en Aviator.
+        </p>
 
-  <p class="fomo">
-    <span class="status-dot"></span>
-    <span id="online"></span> women online now
-  </p>
+        <!-- Блок живого счетчика выплат -->
+        <div class="payout-box">
+            <div class="payout-label">Total pagado a jugadores hoy en Perú:</div>
+            <div class="payout-amount">S/ <span id="payout-counter">350,000</span></div>
+        </div>
 
-  <p class="subtext">
-    Start chatting in less than a minute
-  </p>
+        <!-- Главная кнопка перехода с пробросом UTM -->
+        <a href="#" id="offer-link" class="btn-main">
+            RECLAMAR BONO AHORA ➔
+        </a>
 
-  <a id="ctaButton" href="#">
-    <button>Continue</button>
-  </a>
+        <div class="guarantee-list">
+            <span>⚡ Registro en 30 seg</span>
+            <span>🔒 Pagos directos (Yape/Plin)</span>
+        </div>
 
-</div>
+        <div class="footer-text">
+            Solo para mayores de 18 años (+18). Juega con responsabilidad.
+        </div>
+    </div>
 
-<script>
-  // Ссылка на оффер
-  const offerLink = "https://t.datsk11.com/396873/7346?aff_sub5=SF_006OG000004lmDN";
+    <script>
+        // ==========================================
+        // 1. БАЗОВАЯ РЕФЕРАЛЬНАЯ ССЫЛКА КАЗИНО
+        // ==========================================
+        // Замени ссылку ниже на свою из 1win / Pin-Up
+        const BASE_OFFER_URL = "https://your-casino-ref-link.com/offer";
 
-  // Назначаем ссылку кнопке
-  document.getElementById("ctaButton").href = offerLink;
+        // ==========================================
+        // 2. ПРОБРОС UTM-МЕТОК В ССЫЛКУ
+        // ==========================================
+        function setupRefLinkWithUTM() {
+            const currentParams = new URLSearchParams(window.location.search);
+            const targetUrl = new URL(BASE_OFFER_URL);
 
-  // Рандомное количество пользователей онлайн
-  function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+            // Переносим все UTM и параметры из браузера в ссылку на партнерку
+            currentParams.forEach((value, key) => {
+                targetUrl.searchParams.set(key, value);
+            });
 
-  document.getElementById("online").textContent = getRandom(20, 38);
-</script>
+            document.getElementById("offer-link").href = targetUrl.toString();
+        }
 
+        // ==========================================
+        // 3. ДИНАМИЧЕСКИЙ СЧЕТЧИК ВЫПЛАТ (ПЕРУ, UTC-5)
+        // ==========================================
+        function updatePeruCounter() {
+            const now = new Date();
+            const utcHours = now.getUTCHours();
+            
+            // Время в Лиме, Перу (UTC-5)
+            let peruHour = utcHours - 5;
+            if (peruHour < 0) peruHour += 24;
+            
+            const peruMinutes = now.getUTCMinutes();
+            const peruSeconds = now.getUTCSeconds();
+
+            // Прошло секунд с начала суток в Перу
+            const secondsPassedToday = (peruHour * 3600) + (peruMinutes * 60) + peruSeconds;
+
+            // Базовый дневной объем (~1,200,000 солей в сутки)
+            const baseDailyTarget = 1200000; 
+            let currentAmount = Math.floor((secondsPassedToday / 86400) * baseDailyTarget) + 45000;
+
+            // Достаем накопленный скачок за сессию
+            let extraAdded = parseFloat(sessionStorage.getItem('peru_extra_payout')) || 0;
+            currentAmount += extraAdded;
+
+            // Разбиваем число пробелами/запятыми для формата Перу (es-PE)
+            document.getElementById('payout-counter').innerText = Math.floor(currentAmount).toLocaleString('es-PE');
+
+            // Скачки: случайно от 500 до 5000 солей каждые пару секунд
+            const randomJump = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;
+            extraAdded += randomJump;
+            sessionStorage.setItem('peru_extra_payout', extraAdded);
+        }
+
+        // Инициализация
+        setupRefLinkWithUTM();
+        updatePeruCounter();
+        // Прирост обновляется каждые 3.5 секунды
+        setInterval(updatePeruCounter, 3500);
+    </script>
 </body>
 </html>
