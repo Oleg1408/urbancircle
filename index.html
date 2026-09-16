@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Bono Exclusivo Perú 🇵🇪</title>
+    <title>Acceso Oficial Perú 🇵🇪</title>
     <style>
         * {
             box-sizing: border-box;
@@ -32,7 +32,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10, 10, 12, 0.75) 0%, rgba(10, 10, 12, 0.92) 100%), 
+            background: linear-gradient(180deg, rgba(10, 10, 12, 0.78) 0%, rgba(10, 10, 12, 0.94) 100%), 
                         url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
             filter: blur(6px);
             transform: scale(1.08);
@@ -45,12 +45,12 @@
             z-index: 2;
             width: 100%;
             max-width: 390px;
-            background: rgba(22, 24, 30, 0.75);
+            background: rgba(22, 24, 30, 0.78);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 204, 0, 0.35);
+            border: 1px solid rgba(255, 204, 0, 0.3);
             border-radius: 24px;
-            padding: 28px 20px 22px 20px;
+            padding: 26px 20px 22px 20px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
@@ -60,23 +60,23 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255, 204, 0, 0.15);
+            background: rgba(255, 204, 0, 0.12);
             border: 1px solid #ffcc00;
             color: #ffcc00;
             font-weight: 700;
-            font-size: 12px;
+            font-size: 11px;
             padding: 6px 14px;
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         h1 {
-            font-size: 23px;
+            font-size: 22px;
             font-weight: 800;
             line-height: 1.3;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
@@ -84,7 +84,7 @@
             color: #c0c4d0;
             font-size: 14px;
             line-height: 1.4;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .highlight-green {
@@ -97,12 +97,12 @@
             background: rgba(10, 11, 15, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 14px;
         }
 
         .payout-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #8a8f9d;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -111,10 +111,35 @@
 
         .payout-amount {
             color: #00ff66;
-            font-size: 26px;
+            font-size: 25px;
             font-weight: 900;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+            text-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
+        }
+
+        /* Блок промокода */
+        .promo-box {
+            background: rgba(255, 204, 0, 0.08);
+            border: 1px dashed #ffcc00;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 18px;
+        }
+
+        .promo-title {
+            font-size: 11px;
+            color: #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .promo-code {
+            color: #ffcc00;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            user-select: all;
         }
 
         /* Пульсирующая кнопка перехода */
@@ -126,28 +151,28 @@
             padding: 18px 10px;
             background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
             color: #000000;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 900;
             text-decoration: none;
             border-radius: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
-            animation: pulse 1.8s infinite;
+            box-shadow: 0 0 22px rgba(0, 255, 102, 0.35);
+            animation: pulse 2s infinite;
             border: none;
             cursor: pointer;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
-            70% { transform: scale(1.03); box-shadow: 0 0 0 16px rgba(0, 255, 102, 0); }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(0, 255, 102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
         .guarantee-list {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin-top: 16px;
             font-size: 11px;
             color: #8a8f9d;
@@ -166,27 +191,33 @@
     <div class="bg-overlay"></div>
 
     <div class="card">
-        <div class="badge-geo">🇵🇪 OFERTA EXCLUSIVA PARA PERÚ</div>
+        <div class="badge-geo">🇵🇪 PLATAFORMA VERIFICADA PERÚ</div>
         
-        <h1>¿Listo para cambiar tu suerte hoy?</h1>
+        <h1>¿Listo para probar tu suerte hoy?</h1>
         <p class="subtitle">
-            Obtén hasta <span class="highlight-green">500% de bono</span> en tu primer depósito y giros gratis en Aviator.
+            Ingresa a la plataforma oficial, juega en <span class="highlight-green">Aviator</span> y retira tus ganancias al instante.
         </p>
 
         <!-- Блок живого счетчика выплат -->
         <div class="payout-box">
-            <div class="payout-label">Total pagado a jugadores hoy en Perú:</div>
-            <div class="payout-amount">S/ <span id="payout-counter">350,000</span></div>
+            <div class="payout-label">Pagos procesados hoy en Perú:</div>
+            <div class="payout-amount">S/ <span id="payout-counter">184,250</span></div>
         </div>
 
-        <!-- Главная кнопка перехода с пробросом UTM -->
+        <!-- Блок промокода -->
+        <div class="promo-box">
+            <div class="promo-title">Usa el código promocional al registrarte:</div>
+            <div class="promo-code">GANASOLES</div>
+        </div>
+
+        <!-- Главная кнопка перехода -->
         <a href="#" id="offer-link" class="btn-main">
-            RECLAMAR BONO AHORA ➔
+            ENTRAR Y JUGAR AHORA ➔
         </a>
 
         <div class="guarantee-list">
-            <span>⚡ Registro en 30 seg</span>
-            <span>🔒 Pagos directos (Yape/Plin)</span>
+            <span>📲 Pagos por Yape y Plin</span>
+            <span>⚡ Retiros al instante</span>
         </div>
 
         <div class="footer-text">
@@ -195,20 +226,14 @@
     </div>
 
     <script>
-        // ==========================================
-        // 1. БАЗОВАЯ РЕФЕРАЛЬНАЯ ССЫЛКА КАЗИНО
-        // ==========================================
-        // Замени ссылку ниже на свою из 1win / Pin-Up
-        const BASE_OFFER_URL = "https://your-casino-ref-link.com/offer";
+        // Твоя ссылка на оффер с Авиатором
+        const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
 
-        // ==========================================
-        // 2. ПРОБРОС UTM-МЕТОК В ССЫЛКУ
-        // ==========================================
+        // Проброс UTM-меток из браузера в оффер
         function setupRefLinkWithUTM() {
             const currentParams = new URLSearchParams(window.location.search);
             const targetUrl = new URL(BASE_OFFER_URL);
 
-            // Переносим все UTM и параметры из браузера в ссылку на партнерку
             currentParams.forEach((value, key) => {
                 targetUrl.searchParams.set(key, value);
             });
@@ -216,9 +241,7 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        // ==========================================
-        // 3. ДИНАМИЧЕСКИЙ СЧЕТЧИК ВЫПЛАТ (ПЕРУ, UTC-5)
-        // ==========================================
+        // Динамический счетчик выплат
         function updatePeruCounter() {
             const now = new Date();
             const utcHours = now.getUTCHours();
@@ -230,31 +253,28 @@
             const peruMinutes = now.getUTCMinutes();
             const peruSeconds = now.getUTCSeconds();
 
-            // Прошло секунд с начала суток в Перу
             const secondsPassedToday = (peruHour * 3600) + (peruMinutes * 60) + peruSeconds;
 
-            // Базовый дневной объем (~1,200,000 солей в сутки)
-            const baseDailyTarget = 1200000; 
-            let currentAmount = Math.floor((secondsPassedToday / 86400) * baseDailyTarget) + 45000;
+            const baseDailyTarget = 420000; 
+            let currentAmount = Math.floor((secondsPassedToday / 86400) * baseDailyTarget) + 18500;
 
-            // Достаем накопленный скачок за сессию
             let extraAdded = parseFloat(sessionStorage.getItem('peru_extra_payout')) || 0;
             currentAmount += extraAdded;
 
-            // Разбиваем число пробелами/запятыми для формата Перу (es-PE)
             document.getElementById('payout-counter').innerText = Math.floor(currentAmount).toLocaleString('es-PE');
 
-            // Скачки: случайно от 500 до 5000 солей каждые пару секунд
-            const randomJump = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;
-            extraAdded += randomJump;
+            // Прибавление случайной неровной суммы (от 180 до 920 солей)
+            const randomAdd = Math.floor(Math.random() * (920 - 180 + 1)) + 180;
+            extraAdded += randomAdd;
             sessionStorage.setItem('peru_extra_payout', extraAdded);
+
+            // Следующее прибавление произойдет через 12–25 секунд
+            const randomInterval = Math.floor(Math.random() * (25000 - 12000 + 1)) + 12000;
+            setTimeout(updatePeruCounter, randomInterval);
         }
 
-        // Инициализация
         setupRefLinkWithUTM();
         updatePeruCounter();
-        // Прирост обновляется каждые 3.5 секунды
-        setInterval(updatePeruCounter, 3500);
     </script>
 </body>
 </html>
