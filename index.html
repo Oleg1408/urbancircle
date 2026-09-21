@@ -1,18 +1,21 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Acceso Oficial Perú 🇵🇪</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
         gtag('config', 'G-ZCNSEV7WSP');
     </script>
 
@@ -43,8 +46,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10, 10, 12, 0.78) 0%, rgba(10, 10, 12, 0.94) 100%), 
-                        url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(10, 10, 12, 0.78) 0%,
+                    rgba(10, 10, 12, 0.94) 100%
+                ),
+                url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop')
+                center/cover no-repeat;
             filter: blur(6px);
             transform: scale(1.08);
             z-index: 1;
@@ -60,14 +69,17 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 204, 0, 0.3);
             border-radius: 24px;
-            padding: 26px 20px 22px 20px;
+            padding: 26px 20px 22px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .badge-geo {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             background: rgba(255, 204, 0, 0.12);
             border: 1px solid #ffcc00;
@@ -101,29 +113,97 @@
             font-weight: 800;
         }
 
-        .payout-box {
-            background: rgba(10, 11, 15, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* =========================
+           PAYMENTS BLOCK
+        ========================== */
+
+        .payments-container {
+            text-align: center;
+            background: #1a1f29;
+            padding: 20px;
             border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 14px;
+            width: 100%;
+            margin: 0 auto 18px;
+            color: #ffffff;
+            border: 1px solid #2d3545;
         }
 
-        .payout-label {
-            font-size: 11px;
-            color: #8a8f9d;
+        .payments-title {
+            font-size: 13px;
+            color: #9aa8bc;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            letter-spacing: 0.8px;
+            margin-bottom: 5px;
+            font-weight: 700;
+            line-height: 1.4;
         }
 
-        .payout-amount {
-            color: #00ff66;
-            font-size: 25px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
+        .live-counter {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00ff87;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+            transition: transform 0.2s ease;
         }
+
+        .live-counter.updated {
+            transform: scale(1.035);
+        }
+
+        .payments-divider {
+            border: 0;
+            border-top: 1px solid #2d3545;
+            margin-bottom: 15px;
+        }
+
+        .payment-methods-title {
+            font-size: 13px;
+            color: #9aa8bc;
+            margin-bottom: 10px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+        }
+
+        .payment-method svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+        }
+
+        .yape {
+            background: #742385;
+        }
+
+        .plin {
+            background: #00b4c5;
+        }
+
+        .instant-withdrawal {
+            font-size: 11px;
+            color: #00ff87;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           PROMO
+        ========================== */
 
         .promo-box {
             background: rgba(255, 204, 0, 0.08);
@@ -138,7 +218,14 @@
             color: #d1d5db;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 9px;
+        }
+
+        .promo-code-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
         }
 
         .promo-code {
@@ -148,6 +235,36 @@
             letter-spacing: 2px;
             user-select: all;
         }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background: rgba(255, 204, 0, 0.14);
+            border: 1px solid rgba(255, 204, 0, 0.65);
+            color: #ffcc00;
+            border-radius: 8px;
+            padding: 7px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn.copied {
+            color: #00ff66;
+            border-color: #00ff66;
+            background: rgba(0, 255, 102, 0.1);
+        }
+
+        /* =========================
+           MAIN BUTTON
+        ========================== */
 
         .btn-main {
             display: flex;
@@ -174,23 +291,16 @@
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6);
             }
+
             70% {
                 transform: scale(1.02);
                 box-shadow: 0 0 0 14px rgba(0, 255, 102, 0);
             }
+
             100% {
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
             }
-        }
-
-        .guarantee-list {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 16px;
-            font-size: 11px;
-            color: #8a8f9d;
         }
 
         .footer-text {
@@ -199,90 +309,356 @@
             margin-top: 18px;
             line-height: 1.3;
         }
+
+        @media (max-width: 360px) {
+            .card {
+                padding: 22px 16px 18px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .live-counter {
+                font-size: 28px;
+            }
+
+            .promo-code {
+                font-size: 18px;
+            }
+
+            .copy-btn {
+                padding: 7px 8px;
+                font-size: 10px;
+            }
+
+            .payment-method {
+                padding: 6px 9px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="bg-overlay"></div>
 
     <div class="card">
-        <div class="badge-geo">🇵🇪 PLATAFORMA VERIFICADA PARA JUGADORES EN PERÚ</div>
-        
-        <h1>¿Listo para probar tu suerte hoy?</h1>
+
+        <div class="badge-geo">
+            🇵🇪 PLATAFORMA VERIFICADA PARA JUGADORES EN PERÚ
+        </div>
+
+        <h1>
+            ¿Listo para probar tu suerte hoy?
+        </h1>
+
         <p class="subtitle">
-            Ingresa a la plataforma oficial, juega en <span class="highlight-green">Aviator</span> y retira tus ganancias al instante.
+            Ingresa a la plataforma oficial, juega en
+            <span class="highlight-green">Aviator</span>
+            y retira tus ganancias al instante.
         </p>
 
-        <div class="payout-box">
-            <div class="payout-label">Pagos procesados hoy en Perú:</div>
-            <div class="payout-amount">S/ <span id="payout-counter">184,250</span></div>
+        <!-- =========================
+             PAYMENTS BLOCK
+        ========================== -->
+
+        <div class="payments-container">
+
+            <p class="payments-title">
+                📊 Retiros procesados hoy en Perú:
+            </p>
+
+            <div class="live-counter" id="live-counter">
+                S/ 255,479
+            </div>
+
+            <hr class="payments-divider">
+
+            <p class="payment-methods-title">
+                📲 Métodos de pago disponibles:
+            </p>
+
+            <div class="payment-methods">
+
+                <!-- YAPE -->
+                <div class="payment-method yape">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+
+                    Yape
+                </div>
+
+                <!-- PLIN -->
+                <div class="payment-method plin">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+
+                    Plin
+                </div>
+
+            </div>
+
+            <div class="instant-withdrawal">
+                ⚡ Retiros al instante
+            </div>
+
         </div>
+
+        <!-- =========================
+             PROMO CODE
+        ========================== -->
 
         <div class="promo-box">
-            <div class="promo-title">Usa el código promocional al registrarte:</div>
-            <div class="promo-code">GANASOLES</div>
+
+            <div class="promo-title">
+                🎁 Usa el código promocional al registrarte:
+            </div>
+
+            <div class="promo-code-row">
+
+                <div class="promo-code" id="promo-code">
+                    GANASOLES
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-btn"
+                    id="copy-btn"
+                >
+                    📋 Copiar
+                </button>
+
+            </div>
+
         </div>
 
-        <a href="#" id="offer-link" class="btn-main">
+        <!-- =========================
+             OFFER BUTTON
+        ========================== -->
+
+        <a
+            href="#"
+            id="offer-link"
+            class="btn-main"
+        >
             ENTRAR Y JUGAR AHORA ➔
         </a>
-
-        <div class="guarantee-list">
-            <span>📲 Pagos por Yape y Plin</span>
-            <span>⚡ Retiros al instante</span>
-        </div>
 
         <div class="footer-text">
             Solo para mayores de 18 años (+18). Juega con responsabilidad.
         </div>
+
     </div>
 
+
     <script>
-        const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
+
+        /* =========================================
+           OFFER URL + UTM
+        ========================================== */
+
+        const BASE_OFFER_URL =
+            "https://w-one477.com/v3/aviator-fire?p=349u";
 
         function setupRefLinkWithUTM() {
-            const currentParams = new URLSearchParams(window.location.search);
-            const targetUrl = new URL(BASE_OFFER_URL);
+
+            const currentParams =
+                new URLSearchParams(window.location.search);
+
+            const targetUrl =
+                new URL(BASE_OFFER_URL);
 
             currentParams.forEach((value, key) => {
                 targetUrl.searchParams.set(key, value);
             });
 
-            document.getElementById("offer-link").href = targetUrl.toString();
+            document.getElementById("offer-link").href =
+                targetUrl.toString();
         }
 
-        function updatePeruCounter() {
-            const now = new Date();
-            const utcHours = now.getUTCHours();
-            
-            let peruHour = utcHours - 5;
-            if (peruHour < 0) peruHour += 24;
-            
-            const peruMinutes = now.getUTCMinutes();
-            const peruSeconds = now.getUTCSeconds();
 
-            const secondsPassedToday = (peruHour * 3600) + (peruMinutes * 60) + peruSeconds;
+        /* =========================================
+           COPY PROMO CODE
+        ========================================== */
 
-            const baseDailyTarget = 420000; 
-            let currentAmount = Math.floor((secondsPassedToday / 86400) * baseDailyTarget) + 18500;
+        const promoCode =
+            "GANASOLES";
 
-            let extraAdded = parseFloat(sessionStorage.getItem('peru_extra_payout')) || 0;
-            currentAmount += extraAdded;
+        const copyButton =
+            document.getElementById("copy-btn");
 
-            document.getElementById('payout-counter').innerText =
-                Math.floor(currentAmount).toLocaleString('es-PE');
+        async function copyPromoCode() {
 
-            const randomAdd = Math.floor(Math.random() * (920 - 180 + 1)) + 180;
-            extraAdded += randomAdd;
-            sessionStorage.setItem('peru_extra_payout', extraAdded);
+            try {
 
-            const randomInterval = Math.floor(Math.random() * (25000 - 12000 + 1)) + 12000;
-            setTimeout(updatePeruCounter, randomInterval);
+                await navigator.clipboard.writeText(promoCode);
+
+            } catch (error) {
+
+                const textArea =
+                    document.createElement("textarea");
+
+                textArea.value = promoCode;
+
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+
+                document.body.appendChild(textArea);
+
+                textArea.focus();
+                textArea.select();
+
+                document.execCommand("copy");
+
+                document.body.removeChild(textArea);
+            }
+
+            copyButton.innerHTML =
+                "✓ Copiado";
+
+            copyButton.classList.add("copied");
+
+            setTimeout(function() {
+
+                copyButton.innerHTML =
+                    "📋 Copiar";
+
+                copyButton.classList.remove("copied");
+
+            }, 2200);
         }
+
+        copyButton.addEventListener(
+            "click",
+            copyPromoCode
+        );
+
+
+        /* =========================================
+           LIVE COUNTER
+        ========================================== */
+
+        let count = 255479;
+
+        const counterElement =
+            document.getElementById("live-counter");
+
+
+        function formatNumber(number) {
+
+            return Math.floor(number)
+                .toLocaleString("es-PE");
+
+        }
+
+
+        function animateCounter(from, to, duration) {
+
+            const startTime =
+                performance.now();
+
+            function animate(currentTime) {
+
+                const elapsed =
+                    currentTime - startTime;
+
+                const progress =
+                    Math.min(elapsed / duration, 1);
+
+                const easedProgress =
+                    1 - Math.pow(1 - progress, 3);
+
+                const currentValue =
+                    from + ((to - from) * easedProgress);
+
+                counterElement.textContent =
+                    "S/ " + formatNumber(currentValue);
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(animate);
+
+                } else {
+
+                    counterElement.textContent =
+                        "S/ " + formatNumber(to);
+
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+
+        function updateCounter() {
+
+            const randomAdd =
+                Math.floor(
+                    Math.random() * (180 - 40 + 1)
+                ) + 40;
+
+            const oldCount =
+                count;
+
+            count += randomAdd;
+
+            counterElement.classList.add("updated");
+
+            animateCounter(
+                oldCount,
+                count,
+                650
+            );
+
+            setTimeout(function() {
+
+                counterElement.classList.remove(
+                    "updated"
+                );
+
+            }, 300);
+
+            const randomInterval =
+                Math.floor(
+                    Math.random() * (5000 - 2000 + 1)
+                ) + 2000;
+
+            setTimeout(
+                updateCounter,
+                randomInterval
+            );
+        }
+
+
+        /* =========================================
+           INITIALIZATION
+        ========================================== */
 
         setupRefLinkWithUTM();
-        updatePeruCounter();
+
+        counterElement.textContent =
+            "S/ " + formatNumber(count);
+
+        setTimeout(
+            updateCounter,
+            3000
+        );
+
     </script>
+
 </body>
 </html>
-```
