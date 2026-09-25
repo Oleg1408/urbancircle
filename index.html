@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Acceso Oficial Perú 🇵🇪</title>
+    <title>El Método de Diego Paredes | Perú 🇵🇪</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-ZCNSEV7WSP');
     </script>
@@ -49,12 +45,12 @@
             background:
                 linear-gradient(
                     180deg,
-                    rgba(10, 10, 12, 0.78) 0%,
-                    rgba(10, 10, 12, 0.94) 100%
+                    rgba(10, 10, 12, 0.85) 0%,
+                    rgba(10, 10, 12, 0.96) 100%
                 ),
                 url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop')
                 center/cover no-repeat;
-            filter: blur(6px);
+            filter: blur(8px);
             transform: scale(1.08);
             z-index: 1;
         }
@@ -64,16 +60,50 @@
             z-index: 2;
             width: 100%;
             max-width: 390px;
-            background: rgba(22, 24, 30, 0.78);
+            background: rgba(22, 24, 30, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 204, 0, 0.3);
             border-radius: 24px;
-            padding: 26px 20px 22px;
+            padding: 22px 18px 20px;
             text-align: center;
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* PERSONAL BRAND HEADER */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00ff66;
+        }
+
+        .author-info h2 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .author-info p {
+            font-size: 11px;
+            color: #00ff66;
+            font-weight: 600;
         }
 
         .badge-geo {
@@ -85,27 +115,27 @@
             border: 1px solid #ffcc00;
             color: #ffcc00;
             font-weight: 700;
-            font-size: 11px;
-            padding: 6px 14px;
+            font-size: 10px;
+            padding: 5px 12px;
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             line-height: 1.3;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #ffffff;
         }
 
         .subtitle {
             color: #c0c4d0;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.4;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .highlight-green {
@@ -113,36 +143,32 @@
             font-weight: 800;
         }
 
-        /* =========================
-           PAYMENTS BLOCK
-        ========================== */
-
+        /* PAYMENTS BLOCK */
         .payments-container {
             text-align: center;
             background: #1a1f29;
-            padding: 20px;
+            padding: 16px;
             border-radius: 16px;
             width: 100%;
-            margin: 0 auto 18px;
+            margin: 0 auto 16px;
             color: #ffffff;
             border: 1px solid #2d3545;
         }
 
         .payments-title {
-            font-size: 13px;
+            font-size: 12px;
             color: #9aa8bc;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             font-weight: 700;
-            line-height: 1.4;
         }
 
         .live-counter {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             color: #00ff87;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             text-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
             transition: transform 0.2s ease;
         }
@@ -154,19 +180,19 @@
         .payments-divider {
             border: 0;
             border-top: 1px solid #2d3545;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .payment-methods-title {
-            font-size: 13px;
+            font-size: 12px;
             color: #9aa8bc;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
@@ -176,23 +202,18 @@
             padding: 6px 12px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             color: white;
         }
 
         .payment-method svg {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             margin-right: 6px;
         }
 
-        .yape {
-            background: #742385;
-        }
-
-        .plin {
-            background: #00b4c5;
-        }
+        .yape { background: #742385; }
+        .plin { background: #00b4c5; }
 
         .instant-withdrawal {
             font-size: 11px;
@@ -201,16 +222,13 @@
             font-weight: bold;
         }
 
-        /* =========================
-           PROMO
-        ========================== */
-
+        /* PROMO & TIMER */
         .promo-box {
             background: rgba(255, 204, 0, 0.08);
             border: 1px dashed #ffcc00;
             border-radius: 14px;
             padding: 12px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .promo-title {
@@ -218,14 +236,15 @@
             color: #d1d5db;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 9px;
+            margin-bottom: 8px;
         }
 
         .promo-code-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 9px;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         .promo-code {
@@ -245,16 +264,14 @@
             border: 1px solid rgba(255, 204, 0, 0.65);
             color: #ffcc00;
             border-radius: 8px;
-            padding: 7px 10px;
+            padding: 6px 10px;
             font-size: 11px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .copy-btn:active {
-            transform: scale(0.95);
-        }
+        .copy-btn:active { transform: scale(0.95); }
 
         .copy-btn.copied {
             color: #00ff66;
@@ -262,19 +279,22 @@
             background: rgba(0, 255, 102, 0.1);
         }
 
-        /* =========================
-           MAIN BUTTON
-        ========================== */
+        .timer-text {
+            font-size: 11px;
+            color: #ff4d4d;
+            font-weight: 700;
+        }
 
+        /* MAIN BUTTON */
         .btn-main {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 18px 10px;
+            padding: 16px 10px;
             background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
             color: #000000;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 900;
             text-decoration: none;
             border-radius: 14px;
@@ -287,55 +307,16 @@
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6);
-            }
-
-            70% {
-                transform: scale(1.02);
-                box-shadow: 0 0 0 14px rgba(0, 255, 102, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(0, 255, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
         .footer-text {
             font-size: 10px;
             color: #555a65;
-            margin-top: 18px;
+            margin-top: 14px;
             line-height: 1.3;
-        }
-
-        @media (max-width: 360px) {
-            .card {
-                padding: 22px 16px 18px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .live-counter {
-                font-size: 28px;
-            }
-
-            .promo-code {
-                font-size: 18px;
-            }
-
-            .copy-btn {
-                padding: 7px 8px;
-                font-size: 10px;
-            }
-
-            .payment-method {
-                padding: 6px 9px;
-                font-size: 12px;
-            }
         }
     </style>
 </head>
@@ -346,26 +327,29 @@
 
     <div class="card">
 
+        <!-- DIEGO PAREDES HEADER -->
+        <div class="author-box">
+            <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
+            <div class="author-info">
+                <h2>Diego Paredes 🇵🇪</h2>
+                <p>✓ Método verificado para Perú</p>
+            </div>
+        </div>
+
         <div class="badge-geo">
-            🇵🇪 PLATAFORMA VERIFICADA PARA JUGADORES EN PERÚ
+            Plataforma Oficial
         </div>
 
         <h1>
-            ¿Listo para probar tu suerte hoy?
+            Acceso al Método de Diego
         </h1>
 
         <p class="subtitle">
-            Ingresa a la plataforma oficial, juega en
-            <span class="highlight-green">Aviator</span>
-            y retira tus ganancias al instante.
+            Regístrate en la plataforma oficial, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
         </p>
 
-        <!-- =========================
-             PAYMENTS BLOCK
-        ========================== -->
-
+        <!-- PAYMENTS BLOCK -->
         <div class="payments-container">
-
             <p class="payments-title">
                 📊 Retiros procesados hoy en Perú:
             </p>
@@ -377,85 +361,47 @@
             <hr class="payments-divider">
 
             <p class="payment-methods-title">
-                📲 Métodos de pago disponibles:
+                📲 Métodos de pago e ingreso directo:
             </p>
 
             <div class="payment-methods">
-
-                <!-- YAPE -->
                 <div class="payment-method yape">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                    </svg>
-
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
                     Yape
                 </div>
 
-                <!-- PLIN -->
                 <div class="payment-method plin">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                    </svg>
-
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
                     Plin
                 </div>
-
             </div>
 
             <div class="instant-withdrawal">
-                ⚡ Retiros al instante
+                ⚡ Retiros al instante garantizados
             </div>
-
         </div>
 
-        <!-- =========================
-             PROMO CODE
-        ========================== -->
-
+        <!-- PROMO CODE & TIMER -->
         <div class="promo-box">
-
             <div class="promo-title">
-                🎁 Usa el código promocional al registrarte:
+                🎁 Copia tu código de bono exclusivo:
             </div>
 
             <div class="promo-code-row">
-
-                <div class="promo-code" id="promo-code">
-                    GANASOLES
-                </div>
-
-                <button
-                    type="button"
-                    class="copy-btn"
-                    id="copy-btn"
-                >
+                <div class="promo-code" id="promo-code">GANASOLES</div>
+                <button type="button" class="copy-btn" id="copy-btn">
                     📋 Copiar
                 </button>
-
             </div>
 
+            <div class="timer-text">
+                ⏳ El bono del 200% expira en: <span id="timer">14:59</span>
+            </div>
         </div>
 
-        <!-- =========================
-             OFFER BUTTON
-        ========================== -->
-
-        <a
-            href="#"
-            id="offer-link"
-            class="btn-main"
-        >
-            ENTRAR Y JUGAR AHORA ➔
+        <!-- OFFER BUTTON -->
+        <a href="#" id="offer-link" class="btn-main">
+            IR A LA PLATAFORMA OFICIAL ➔
         </a>
 
         <div class="footer-text">
@@ -464,200 +410,119 @@
 
     </div>
 
-
     <script>
-
-        /* =========================================
-           OFFER URL + UTM
-        ========================================== */
-
-        const BASE_OFFER_URL =
-            "https://w-one477.com/v3/aviator-fire?p=349u";
+        /* OFFER URL + UTM */
+        const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
 
         function setupRefLinkWithUTM() {
-
-            const currentParams =
-                new URLSearchParams(window.location.search);
-
-            const targetUrl =
-                new URL(BASE_OFFER_URL);
-
+            const currentParams = new URLSearchParams(window.location.search);
+            const targetUrl = new URL(BASE_OFFER_URL);
             currentParams.forEach((value, key) => {
                 targetUrl.searchParams.set(key, value);
             });
-
-            document.getElementById("offer-link").href =
-                targetUrl.toString();
+            document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-
-        /* =========================================
-           COPY PROMO CODE
-        ========================================== */
-
-        const promoCode =
-            "GANASOLES";
-
-        const copyButton =
-            document.getElementById("copy-btn");
+        /* COPY PROMO CODE */
+        const promoCode = "GANASOLES";
+        const copyButton = document.getElementById("copy-btn");
 
         async function copyPromoCode() {
-
             try {
-
                 await navigator.clipboard.writeText(promoCode);
-
             } catch (error) {
-
-                const textArea =
-                    document.createElement("textarea");
-
+                const textArea = document.createElement("textarea");
                 textArea.value = promoCode;
-
                 textArea.style.position = "fixed";
                 textArea.style.left = "-9999px";
-
                 document.body.appendChild(textArea);
-
                 textArea.focus();
                 textArea.select();
-
                 document.execCommand("copy");
-
                 document.body.removeChild(textArea);
             }
-
-            copyButton.innerHTML =
-                "✓ Copiado";
-
+            copyButton.innerHTML = "✓ Copiado";
             copyButton.classList.add("copied");
 
             setTimeout(function() {
-
-                copyButton.innerHTML =
-                    "📋 Copiar";
-
+                copyButton.innerHTML = "📋 Copiar";
                 copyButton.classList.remove("copied");
-
             }, 2200);
         }
 
-        copyButton.addEventListener(
-            "click",
-            copyPromoCode
-        );
+        copyButton.addEventListener("click", copyPromoCode);
 
-
-        /* =========================================
-           LIVE COUNTER
-        ========================================== */
-
+        /* LIVE COUNTER */
         let count = 255479;
-
-        const counterElement =
-            document.getElementById("live-counter");
-
+        const counterElement = document.getElementById("live-counter");
 
         function formatNumber(number) {
-
-            return Math.floor(number)
-                .toLocaleString("es-PE");
-
+            return Math.floor(number).toLocaleString("es-PE");
         }
 
-
         function animateCounter(from, to, duration) {
-
-            const startTime =
-                performance.now();
-
+            const startTime = performance.now();
             function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = from + ((to - from) * easedProgress);
 
-                const elapsed =
-                    currentTime - startTime;
-
-                const progress =
-                    Math.min(elapsed / duration, 1);
-
-                const easedProgress =
-                    1 - Math.pow(1 - progress, 3);
-
-                const currentValue =
-                    from + ((to - from) * easedProgress);
-
-                counterElement.textContent =
-                    "S/ " + formatNumber(currentValue);
+                counterElement.textContent = "S/ " + formatNumber(currentValue);
 
                 if (progress < 1) {
-
                     requestAnimationFrame(animate);
-
                 } else {
-
-                    counterElement.textContent =
-                        "S/ " + formatNumber(to);
-
+                    counterElement.textContent = "S/ " + formatNumber(to);
                 }
             }
-
             requestAnimationFrame(animate);
         }
 
-
         function updateCounter() {
-
-            const randomAdd =
-                Math.floor(
-                    Math.random() * (180 - 40 + 1)
-                ) + 40;
-
-            const oldCount =
-                count;
-
+            const randomAdd = Math.floor(Math.random() * (180 - 40 + 1)) + 40;
+            const oldCount = count;
             count += randomAdd;
 
             counterElement.classList.add("updated");
-
-            animateCounter(
-                oldCount,
-                count,
-                650
-            );
+            animateCounter(oldCount, count, 650);
 
             setTimeout(function() {
-
-                counterElement.classList.remove(
-                    "updated"
-                );
-
+                counterElement.classList.remove("updated");
             }, 300);
 
-            const randomInterval =
-                Math.floor(
-                    Math.random() * (5000 - 2000 + 1)
-                ) + 2000;
-
-            setTimeout(
-                updateCounter,
-                randomInterval
-            );
+            const randomInterval = Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000;
+            setTimeout(updateCounter, randomInterval);
         }
 
+        /* TIMER COUNTDOWN */
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-        /* =========================================
-           INITIALIZATION
-        ========================================== */
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        /* INITIALIZATION */
         setupRefLinkWithUTM();
+        counterElement.textContent = "S/ " + formatNumber(count);
+        setTimeout(updateCounter, 3000);
 
-        counterElement.textContent =
-            "S/ " + formatNumber(count);
-
-        setTimeout(
-            updateCounter,
-            3000
-        );
-
+        window.onload = function () {
+            const fifteenMinutes = 60 * 14 + 59,
+                display = document.querySelector('#timer');
+            startTimer(fifteenMinutes, display);
+        };
     </script>
 
 </body>
