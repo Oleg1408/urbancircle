@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Diego Paredes | Official Platform</title>
+    <title>Diego Paredes | Plataforma de Juegos</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
@@ -157,7 +157,7 @@
             font-weight: 800;
         }
 
-        /* PAYMENTS & COUNTER BLOCK */
+        /* COMMUNITY ACTIVITY BLOCK */
         .payments-container {
             text-align: center;
             background: #1a1f29;
@@ -179,7 +179,7 @@
         }
 
         .live-counter {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             color: #00ff87;
             margin-bottom: 8px;
@@ -292,7 +292,7 @@
             font-weight: 700;
         }
 
-        /* MAIN BUTTON (MOVED UP) */
+        /* MAIN BUTTON */
         .btn-main {
             display: flex;
             justify-content: center;
@@ -320,7 +320,7 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
-        /* FOOTER INFO (DOWNSIZED & CLEANED) */
+        /* FOOTER INFO */
         .footer-info {
             font-size: 9px;
             color: #6c727f;
@@ -354,7 +354,7 @@
                 <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
                 <div class="author-info">
                     <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
-                    <p id="verified-text">✓ Método Verificado</p>
+                    <p id="verified-text">Estrategia e Información</p>
                 </div>
             </div>
             <div class="lang-switch">
@@ -363,26 +363,26 @@
             </div>
         </div>
 
-        <h1 id="main-title">Acceso al Método Oficial</h1>
+        <h1 id="main-title">Acceso a la Plataforma</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
+            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida.
         </p>
 
-        <!-- PAYMENTS & LIVE COUNTER -->
+        <!-- COMMUNITY ACTIVITY COUNTER -->
         <div class="payments-container">
             <p class="payments-title" id="counter-title">
-                📊 Retiros procesados hoy:
+                👥 Usuarios activos hoy:
             </p>
 
             <div class="live-counter" id="live-counter">
-                S/ 148,250
+                12,485
             </div>
 
             <hr class="payments-divider">
 
             <p class="payment-methods-title" id="methods-title">
-                📲 Métodos de pago e ingreso directo:
+                📲 Métodos de pago disponibles en la plataforma:
             </p>
 
             <div class="payment-methods">
@@ -412,63 +412,61 @@
             </div>
         </div>
 
-        <!-- MAIN BUTTON (MOVED UP FOR HIGHER CTR) -->
+        <!-- MAIN BUTTON -->
         <a href="#" id="offer-link" class="btn-main">
-            <span id="btn-text">IR A LA PLATAFORMA OFICIAL ➔</span>
+            <span id="btn-text">IR A LA PLATAFORMA ➔</span>
         </a>
 
         <!-- FOOTER LOW-PRIORITY INFO -->
         <div class="footer-info">
             <div class="footer-badges">
-                <span>⚡ Aviator Official</span>
-                <span>🔒 100% Safe</span>
+                <span>⚡ Aviator</span>
+                <span>🔒 Secure</span>
                 <span>🔞 +18 Only</span>
             </div>
             <div id="footer-text">
-                Juega con responsabilidad. Términos y condiciones aplicables.
+                El juego es solo para fines de entretenimiento. Juega con responsabilidad (+18).
             </div>
         </div>
 
     </div>
 
     <script>
-        /* CONFIGURATION & CURRENCY RATE (5 OCT 2026: 1 USD = 3.75 PEN) */
-        const USD_TO_PEN = 3.75;
         const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
         const promoCode = "GANASOLES";
         
         let currentLang = "es";
-        let currentAmountPEN = 148250;
+        let activeUsers = 12485;
 
         /* TEXT DICTIONARY */
         const i18n = {
             es: {
                 flag: "🇵🇪",
-                verified: "✓ Método Verificado",
-                title: "Acceso al Método Oficial",
-                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono al instante.',
-                counterTitle: "📊 Retiros procesados hoy:",
-                methodsTitle: "📲 Métodos de pago e ingreso directo:",
+                verified: "Estrategia e Información",
+                title: "Acceso a la Plataforma",
+                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida.',
+                counterTitle: "👥 Usuarios activos hoy:",
+                methodsTitle: "📲 Métodos de pago disponibles en la plataforma:",
                 promoTitle: "🎁 Copia tu código de bono exclusivo:",
                 copy: "Copiar",
                 copied: "Copiado",
                 timer: "⏳ El bono expira en:",
-                btn: "IR A LA PLATAFORMA OFICIAL ➔",
-                footer: "Juega con responsabilidad. Solo para mayores de 18 años (+18)."
+                btn: "IR A LA PLATAFORMA ➔",
+                footer: "El juego es solo para fines de entretenimiento. Juega con responsabilidad (+18)."
             },
             en: {
                 flag: "🌐",
-                verified: "✓ Verified Method",
-                title: "Official Strategy Access",
-                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your bonus instantly.',
-                counterTitle: "📊 Total Payouts Today:",
-                methodsTitle: "📲 Instant Deposit & Withdrawal Methods:",
+                verified: "Strategy & Tips",
+                title: "Platform Access",
+                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your welcome bonus.',
+                counterTitle: "👥 Active users today:",
+                methodsTitle: "📲 Payment methods available on the platform:",
                 promoTitle: "🎁 Copy your exclusive bonus code:",
                 copy: "Copy",
                 copied: "Copied",
                 timer: "⏳ Bonus expires in:",
-                btn: "GO TO OFFICIAL PLATFORM ➔",
-                footer: "Please play responsibly. Strictly 18+ only."
+                btn: "GO TO PLATFORM ➔",
+                footer: "Gaming is for entertainment purposes only. Please play responsibly (+18)."
             }
         };
 
@@ -482,44 +480,38 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* LOCALSTORAGE FIXED COUNTER SYSTEM */
-        function initFixedCounter() {
+        /* USER COUNTER SYSTEM */
+        function initCounter() {
             const today = new Date().toISOString().slice(0, 10);
             const savedDate = localStorage.getItem("dp_counter_date");
-            const savedAmount = localStorage.getItem("dp_counter_amount");
+            const savedAmount = localStorage.getItem("dp_counter_users");
 
             if (savedDate === today && savedAmount) {
-                currentAmountPEN = parseFloat(savedAmount);
+                activeUsers = parseInt(savedAmount, 10);
             } else {
-                // Base starting amount (e.g. 148,250 PEN)
-                currentAmountPEN = 148250 + Math.floor(Math.random() * 1200);
+                activeUsers = 11500 + Math.floor(Math.random() * 800);
                 localStorage.setItem("dp_counter_date", today);
-                localStorage.setItem("dp_counter_amount", currentAmountPEN);
+                localStorage.setItem("dp_counter_users", activeUsers);
             }
             renderCounter();
         }
 
         function renderCounter() {
             const el = document.getElementById("live-counter");
-            if (currentLang === "es") {
-                el.textContent = "S/ " + Math.floor(currentAmountPEN).toLocaleString("es-PE");
-            } else {
-                const usdAmount = currentAmountPEN / USD_TO_PEN;
-                el.textContent = "$ " + Math.floor(usdAmount).toLocaleString("en-US");
-            }
+            el.textContent = activeUsers.toLocaleString();
         }
 
         function updateCounterLoop() {
-            const randomAddPEN = Math.floor(Math.random() * 120) + 30;
-            currentAmountPEN += randomAddPEN;
-            localStorage.setItem("dp_counter_amount", currentAmountPEN);
+            const addUsers = Math.floor(Math.random() * 3) + 1;
+            activeUsers += addUsers;
+            localStorage.setItem("dp_counter_users", activeUsers);
 
             const el = document.getElementById("live-counter");
             el.classList.add("updated");
             renderCounter();
 
             setTimeout(() => el.classList.remove("updated"), 300);
-            setTimeout(updateCounterLoop, Math.floor(Math.random() * 4000) + 2500);
+            setTimeout(updateCounterLoop, Math.floor(Math.random() * 5000) + 3000);
         }
 
         /* LANGUAGE SWITCHING & AUTO-DETECTION */
@@ -546,7 +538,6 @@
 
         function autoDetectLanguage() {
             const userLang = navigator.language || navigator.userLanguage;
-            // If browser/device language is NOT Spanish, default to English
             if (!userLang.startsWith("es")) {
                 switchLang("en");
             } else {
@@ -602,7 +593,7 @@
 
         /* INIT */
         setupRefLinkWithUTM();
-        initFixedCounter();
+        initCounter();
         autoDetectLanguage();
         setTimeout(updateCounterLoop, 3000);
 
