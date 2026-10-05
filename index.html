@@ -157,11 +157,11 @@
             font-weight: 800;
         }
 
-        /* PAYMENTS & COUNTER BLOCK */
+        /* PAYMENTS BLOCK */
         .payments-container {
             text-align: center;
             background: #1a1f29;
-            padding: 12px 10px;
+            padding: 10px;
             border-radius: 14px;
             width: 100%;
             margin: 0 auto 12px;
@@ -169,38 +169,13 @@
             border: 1px solid #2d3545;
         }
 
-        .payments-title {
-            font-size: 11px;
-            color: #9aa8bc;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-            font-weight: 700;
-        }
-
-        .live-counter {
-            font-size: 26px;
-            font-weight: 800;
-            color: #00ff87;
-            margin-bottom: 8px;
-            text-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
-            transition: transform 0.2s ease;
-        }
-
-        .live-counter.updated {
-            transform: scale(1.03);
-        }
-
-        .payments-divider {
-            border: 0;
-            border-top: 1px solid #2d3545;
-            margin-bottom: 8px;
-        }
-
         .payment-methods-title {
             font-size: 10px;
             color: #9aa8bc;
             margin-bottom: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .payment-methods {
@@ -234,7 +209,7 @@
             background: rgba(255, 204, 0, 0.08);
             border: 1px dashed #ffcc00;
             border-radius: 12px;
-            padding: 10px;
+            padding: 12px 10px;
             margin-bottom: 12px;
         }
 
@@ -243,7 +218,8 @@
             color: #d1d5db;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .promo-code-row {
@@ -251,12 +227,12 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .promo-code {
             color: #ffcc00;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             letter-spacing: 1.5px;
             user-select: all;
@@ -271,7 +247,7 @@
             border: 1px solid rgba(255, 204, 0, 0.65);
             color: #ffcc00;
             border-radius: 6px;
-            padding: 4px 8px;
+            padding: 5px 10px;
             font-size: 10px;
             font-weight: 800;
             cursor: pointer;
@@ -287,7 +263,7 @@
         }
 
         .timer-text {
-            font-size: 10px;
+            font-size: 11px;
             color: #ff4d4d;
             font-weight: 700;
         }
@@ -369,18 +345,8 @@
             Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
         </p>
 
-        <!-- PAYMENTS & LIVE COUNTER -->
+        <!-- PAYMENTS BLOCK -->
         <div class="payments-container">
-            <p class="payments-title" id="counter-title">
-                📊 Retiros procesados hoy:
-            </p>
-
-            <div class="live-counter" id="live-counter">
-                S/ 148,250
-            </div>
-
-            <hr class="payments-divider">
-
             <p class="payment-methods-title" id="methods-title">
                 📲 Métodos de pago e ingreso directo:
             </p>
@@ -432,12 +398,10 @@
     </div>
 
     <script>
-        const USD_TO_PEN = 3.75;
         const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
         const promoCode = "GANASOLES";
         
         let currentLang = "es";
-        let currentAmountPEN = 148250;
 
         /* TEXT DICTIONARY */
         const i18n = {
@@ -446,7 +410,6 @@
                 verified: "✓ Método que cambia tu vida",
                 title: "Acceso a la Estrategia Comprobada",
                 subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.',
-                counterTitle: "📊 Retiros procesados hoy:",
                 methodsTitle: "📲 Métodos de pago e ingreso directo:",
                 promoTitle: "🎁 Copia tu código de bono exclusivo:",
                 copy: "Copiar",
@@ -460,7 +423,6 @@
                 verified: "✓ Life-changing method",
                 title: "Proven Strategy Access",
                 subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your bonus instantly.',
-                counterTitle: "📊 Total Payouts Today:",
                 methodsTitle: "📲 Instant Deposit & Withdrawal Methods:",
                 promoTitle: "🎁 Copy your exclusive bonus code:",
                 copy: "Copy",
@@ -481,45 +443,6 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* LOCALSTORAGE FIXED COUNTER SYSTEM */
-        function initFixedCounter() {
-            const today = new Date().toISOString().slice(0, 10);
-            const savedDate = localStorage.getItem("dp_counter_date");
-            const savedAmount = localStorage.getItem("dp_counter_amount");
-
-            if (savedDate === today && savedAmount) {
-                currentAmountPEN = parseFloat(savedAmount);
-            } else {
-                currentAmountPEN = 148250 + Math.floor(Math.random() * 1200);
-                localStorage.setItem("dp_counter_date", today);
-                localStorage.setItem("dp_counter_amount", currentAmountPEN);
-            }
-            renderCounter();
-        }
-
-        function renderCounter() {
-            const el = document.getElementById("live-counter");
-            if (currentLang === "es") {
-                el.textContent = "S/ " + Math.floor(currentAmountPEN).toLocaleString("es-PE");
-            } else {
-                const usdAmount = currentAmountPEN / USD_TO_PEN;
-                el.textContent = "$ " + Math.floor(usdAmount).toLocaleString("en-US");
-            }
-        }
-
-        function updateCounterLoop() {
-            const randomAddPEN = Math.floor(Math.random() * 120) + 30;
-            currentAmountPEN += randomAddPEN;
-            localStorage.setItem("dp_counter_amount", currentAmountPEN);
-
-            const el = document.getElementById("live-counter");
-            el.classList.add("updated");
-            renderCounter();
-
-            setTimeout(() => el.classList.remove("updated"), 300);
-            setTimeout(updateCounterLoop, Math.floor(Math.random() * 4000) + 2500);
-        }
-
         /* LANGUAGE SWITCHING & AUTO-DETECTION */
         function switchLang(lang) {
             currentLang = lang;
@@ -531,15 +454,12 @@
             document.getElementById("verified-text").textContent = t.verified;
             document.getElementById("main-title").textContent = t.title;
             document.getElementById("main-subtitle").innerHTML = t.subtitle;
-            document.getElementById("counter-title").textContent = t.counterTitle;
             document.getElementById("methods-title").textContent = t.methodsTitle;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
             document.getElementById("timer-box").innerHTML = `${t.timer} <span id="timer">${document.getElementById("timer").textContent}</span>`;
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("footer-text").textContent = t.footer;
-
-            renderCounter();
         }
 
         function autoDetectLanguage() {
@@ -599,9 +519,7 @@
 
         /* INIT */
         setupRefLinkWithUTM();
-        initFixedCounter();
         autoDetectLanguage();
-        setTimeout(updateCounterLoop, 3000);
 
         window.onload = function () {
             const fifteenMinutes = 60 * 14 + 59;
