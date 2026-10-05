@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>El Método de Diego Paredes | Perú 🇵🇪</title>
+    <title>Diego Paredes | Official Platform</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
@@ -33,7 +33,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            padding: 15px;
+            padding: 12px;
         }
 
         .bg-overlay {
@@ -60,82 +60,96 @@
             z-index: 2;
             width: 100%;
             max-width: 390px;
-            background: rgba(22, 24, 30, 0.85);
+            background: rgba(22, 24, 30, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 204, 0, 0.3);
-            border-radius: 24px;
-            padding: 22px 18px 20px;
+            border-radius: 20px;
+            padding: 16px 14px 16px;
             text-align: center;
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* PERSONAL BRAND HEADER */
+        /* HEADER & LANG SWITCHER */
         .author-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 50px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+        }
+
+        .author-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             text-align: left;
         }
 
         .author-avatar {
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #00ff66;
         }
 
         .author-info h2 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             color: #ffffff;
             line-height: 1.2;
         }
 
         .author-info p {
-            font-size: 11px;
+            font-size: 10px;
             color: #00ff66;
             font-weight: 600;
         }
 
-        .badge-geo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: rgba(255, 204, 0, 0.12);
-            border: 1px solid #ffcc00;
-            color: #ffcc00;
-            font-weight: 700;
+        .lang-switch {
+            display: flex;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            padding: 4px 8px;
             font-size: 10px;
-            padding: 5px 12px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            font-weight: 800;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: #ffcc00;
+            color: #000;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 8px;
+            line-height: 1.2;
+            margin-bottom: 6px;
             color: #ffffff;
         }
 
         .subtitle {
             color: #c0c4d0;
-            font-size: 13px;
-            line-height: 1.4;
-            margin-bottom: 16px;
+            font-size: 12px;
+            line-height: 1.35;
+            margin-bottom: 12px;
         }
 
         .highlight-green {
@@ -143,115 +157,108 @@
             font-weight: 800;
         }
 
-        /* PAYMENTS BLOCK */
+        /* PAYMENTS & COUNTER BLOCK */
         .payments-container {
             text-align: center;
             background: #1a1f29;
-            padding: 16px;
-            border-radius: 16px;
+            padding: 12px 10px;
+            border-radius: 14px;
             width: 100%;
-            margin: 0 auto 16px;
+            margin: 0 auto 12px;
             color: #ffffff;
             border: 1px solid #2d3545;
         }
 
         .payments-title {
-            font-size: 12px;
+            font-size: 11px;
             color: #9aa8bc;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
             font-weight: 700;
         }
 
         .live-counter {
-            font-size: 30px;
+            font-size: 26px;
             font-weight: 800;
             color: #00ff87;
-            margin-bottom: 14px;
+            margin-bottom: 8px;
             text-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
             transition: transform 0.2s ease;
         }
 
         .live-counter.updated {
-            transform: scale(1.035);
+            transform: scale(1.03);
         }
 
         .payments-divider {
             border: 0;
             border-top: 1px solid #2d3545;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .payment-methods-title {
-            font-size: 12px;
+            font-size: 10px;
             color: #9aa8bc;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 6px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .payment-method {
             display: flex;
             align-items: center;
-            padding: 6px 12px;
-            border-radius: 8px;
+            padding: 4px 8px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 10px;
             color: white;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .payment-method svg {
-            width: 14px;
-            height: 14px;
-            margin-right: 6px;
-        }
-
-        .yape { background: #742385; }
-        .plin { background: #00b4c5; }
-
-        .instant-withdrawal {
-            font-size: 11px;
-            color: #00ff87;
-            margin-top: 8px;
-            font-weight: bold;
-        }
+        .yape { background: #742385; border: none; }
+        .plin { background: #00b4c5; border: none; }
+        .visa { background: #1a1f71; border: none; }
+        .mc { background: #eb001b; border: none; }
+        .crypto { background: #26a17b; border: none; }
 
         /* PROMO & TIMER */
         .promo-box {
             background: rgba(255, 204, 0, 0.08);
             border: 1px dashed #ffcc00;
-            border-radius: 14px;
-            padding: 12px;
-            margin-bottom: 16px;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 12px;
         }
 
         .promo-title {
-            font-size: 11px;
+            font-size: 10px;
             color: #d1d5db;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .promo-code-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 8px;
+            gap: 8px;
+            margin-bottom: 6px;
         }
 
         .promo-code {
             color: #ffcc00;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             user-select: all;
         }
 
@@ -259,13 +266,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 4px;
             background: rgba(255, 204, 0, 0.14);
             border: 1px solid rgba(255, 204, 0, 0.65);
             color: #ffcc00;
-            border-radius: 8px;
-            padding: 6px 10px;
-            font-size: 11px;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 10px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -280,43 +287,57 @@
         }
 
         .timer-text {
-            font-size: 11px;
+            font-size: 10px;
             color: #ff4d4d;
             font-weight: 700;
         }
 
-        /* MAIN BUTTON */
+        /* MAIN BUTTON (MOVED UP) */
         .btn-main {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 16px 10px;
+            padding: 14px 10px;
             background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
             color: #000000;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 900;
             text-decoration: none;
-            border-radius: 14px;
+            border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 22px rgba(0, 255, 102, 0.35);
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.35);
             animation: pulse 2s infinite;
             border: none;
             cursor: pointer;
+            margin-bottom: 12px;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(0, 255, 102, 0); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(0, 255, 102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
-        .footer-text {
-            font-size: 10px;
-            color: #555a65;
-            margin-top: 14px;
+        /* FOOTER INFO (DOWNSIZED & CLEANED) */
+        .footer-info {
+            font-size: 9px;
+            color: #6c727f;
             line-height: 1.3;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #888e9b;
         }
     </style>
 </head>
@@ -327,93 +348,131 @@
 
     <div class="card">
 
-        <!-- DIEGO PAREDES HEADER -->
+        <!-- HEADER & LANG SWITCHER -->
         <div class="author-box">
-            <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
-            <div class="author-info">
-                <h2>Diego Paredes 🇵🇪</h2>
-                <p>✓ Método verificado para Perú</p>
+            <div class="author-left">
+                <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
+                <div class="author-info">
+                    <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
+                    <p id="verified-text">✓ Método Verificado</p>
+                </div>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+                <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
             </div>
         </div>
 
-        <div class="badge-geo">
-            Plataforma Oficial
-        </div>
+        <h1 id="main-title">Acceso al Método Oficial</h1>
 
-        <h1>
-            Acceso al Método de Diego
-        </h1>
-
-        <p class="subtitle">
-            Regístrate en la plataforma oficial, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
+        <p class="subtitle" id="main-subtitle">
+            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
         </p>
 
-        <!-- PAYMENTS BLOCK -->
+        <!-- PAYMENTS & LIVE COUNTER -->
         <div class="payments-container">
-            <p class="payments-title">
-                📊 Retiros procesados hoy en Perú:
+            <p class="payments-title" id="counter-title">
+                📊 Retiros procesados hoy:
             </p>
 
             <div class="live-counter" id="live-counter">
-                S/ 255,479
+                S/ 148,250
             </div>
 
             <hr class="payments-divider">
 
-            <p class="payment-methods-title">
+            <p class="payment-methods-title" id="methods-title">
                 📲 Métodos de pago e ingreso directo:
             </p>
 
             <div class="payment-methods">
-                <div class="payment-method yape">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    Yape
-                </div>
-
-                <div class="payment-method plin">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    Plin
-                </div>
-            </div>
-
-            <div class="instant-withdrawal">
-                ⚡ Retiros rápidos y sencillos
+                <div class="payment-method yape">Yape</div>
+                <div class="payment-method plin">Plin</div>
+                <div class="payment-method visa">VISA</div>
+                <div class="payment-method mc">Mastercard</div>
+                <div class="payment-method crypto">USDT / Crypto</div>
             </div>
         </div>
 
         <!-- PROMO CODE & TIMER -->
         <div class="promo-box">
-            <div class="promo-title">
+            <div class="promo-title" id="promo-title">
                 🎁 Copia tu código de bono exclusivo:
             </div>
 
             <div class="promo-code-row">
                 <div class="promo-code" id="promo-code">GANASOLES</div>
                 <button type="button" class="copy-btn" id="copy-btn">
-                    📋 Copiar
+                    📋 <span id="copy-text">Copiar</span>
                 </button>
             </div>
 
-            <div class="timer-text">
-                ⏳ El bono del 500% expira en: <span id="timer">14:59</span>
+            <div class="timer-text" id="timer-box">
+                ⏳ El bono expira en: <span id="timer">14:59</span>
             </div>
         </div>
 
-        <!-- OFFER BUTTON -->
+        <!-- MAIN BUTTON (MOVED UP FOR HIGHER CTR) -->
         <a href="#" id="offer-link" class="btn-main">
-            IR A LA PLATAFORMA OFICIAL ➔
+            <span id="btn-text">IR A LA PLATAFORMA OFICIAL ➔</span>
         </a>
 
-        <div class="footer-text">
-            Solo para mayores de 18 años (+18). Juega con responsabilidad.
+        <!-- FOOTER LOW-PRIORITY INFO -->
+        <div class="footer-info">
+            <div class="footer-badges">
+                <span>⚡ Aviator Official</span>
+                <span>🔒 100% Safe</span>
+                <span>🔞 +18 Only</span>
+            </div>
+            <div id="footer-text">
+                Juega con responsabilidad. Términos y condiciones aplicables.
+            </div>
         </div>
 
     </div>
 
     <script>
-        /* OFFER URL + UTM */
+        /* CONFIGURATION & CURRENCY RATE (5 OCT 2026: 1 USD = 3.75 PEN) */
+        const USD_TO_PEN = 3.75;
         const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
+        const promoCode = "GANASOLES";
+        
+        let currentLang = "es";
+        let currentAmountPEN = 148250;
 
+        /* TEXT DICTIONARY */
+        const i18n = {
+            es: {
+                flag: "🇵🇪",
+                verified: "✓ Método Verificado",
+                title: "Acceso al Método Oficial",
+                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono al instante.',
+                counterTitle: "📊 Retiros procesados hoy:",
+                methodsTitle: "📲 Métodos de pago e ingreso directo:",
+                promoTitle: "🎁 Copia tu código de bono exclusivo:",
+                copy: "Copiar",
+                copied: "Copiado",
+                timer: "⏳ El bono expira en:",
+                btn: "IR A LA PLATAFORMA OFICIAL ➔",
+                footer: "Juega con responsabilidad. Solo para mayores de 18 años (+18)."
+            },
+            en: {
+                flag: "🌐",
+                verified: "✓ Verified Method",
+                title: "Official Strategy Access",
+                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your bonus instantly.',
+                counterTitle: "📊 Total Payouts Today:",
+                methodsTitle: "📲 Instant Deposit & Withdrawal Methods:",
+                promoTitle: "🎁 Copy your exclusive bonus code:",
+                copy: "Copy",
+                copied: "Copied",
+                timer: "⏳ Bonus expires in:",
+                btn: "GO TO OFFICIAL PLATFORM ➔",
+                footer: "Please play responsibly. Strictly 18+ only."
+            }
+        };
+
+        /* UTM PARSER */
         function setupRefLinkWithUTM() {
             const currentParams = new URLSearchParams(window.location.search);
             const targetUrl = new URL(BASE_OFFER_URL);
@@ -423,10 +482,80 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* COPY PROMO CODE */
-        const promoCode = "GANASOLES";
-        const copyButton = document.getElementById("copy-btn");
+        /* LOCALSTORAGE FIXED COUNTER SYSTEM */
+        function initFixedCounter() {
+            const today = new Date().toISOString().slice(0, 10);
+            const savedDate = localStorage.getItem("dp_counter_date");
+            const savedAmount = localStorage.getItem("dp_counter_amount");
 
+            if (savedDate === today && savedAmount) {
+                currentAmountPEN = parseFloat(savedAmount);
+            } else {
+                // Base starting amount (e.g. 148,250 PEN)
+                currentAmountPEN = 148250 + Math.floor(Math.random() * 1200);
+                localStorage.setItem("dp_counter_date", today);
+                localStorage.setItem("dp_counter_amount", currentAmountPEN);
+            }
+            renderCounter();
+        }
+
+        function renderCounter() {
+            const el = document.getElementById("live-counter");
+            if (currentLang === "es") {
+                el.textContent = "S/ " + Math.floor(currentAmountPEN).toLocaleString("es-PE");
+            } else {
+                const usdAmount = currentAmountPEN / USD_TO_PEN;
+                el.textContent = "$ " + Math.floor(usdAmount).toLocaleString("en-US");
+            }
+        }
+
+        function updateCounterLoop() {
+            const randomAddPEN = Math.floor(Math.random() * 120) + 30;
+            currentAmountPEN += randomAddPEN;
+            localStorage.setItem("dp_counter_amount", currentAmountPEN);
+
+            const el = document.getElementById("live-counter");
+            el.classList.add("updated");
+            renderCounter();
+
+            setTimeout(() => el.classList.remove("updated"), 300);
+            setTimeout(updateCounterLoop, Math.floor(Math.random() * 4000) + 2500);
+        }
+
+        /* LANGUAGE SWITCHING & AUTO-DETECTION */
+        function switchLang(lang) {
+            currentLang = lang;
+            document.getElementById("btn-es").classList.toggle("active", lang === 'es');
+            document.getElementById("btn-en").classList.toggle("active", lang === 'en');
+
+            const t = i18n[lang];
+            document.getElementById("geo-flag").textContent = t.flag;
+            document.getElementById("verified-text").textContent = t.verified;
+            document.getElementById("main-title").textContent = t.title;
+            document.getElementById("main-subtitle").innerHTML = t.subtitle;
+            document.getElementById("counter-title").textContent = t.counterTitle;
+            document.getElementById("methods-title").textContent = t.methodsTitle;
+            document.getElementById("promo-title").textContent = t.promoTitle;
+            document.getElementById("copy-text").textContent = t.copy;
+            document.getElementById("timer-box").innerHTML = `${t.timer} <span id="timer">${document.getElementById("timer").textContent}</span>`;
+            document.getElementById("btn-text").textContent = t.btn;
+            document.getElementById("footer-text").textContent = t.footer;
+
+            renderCounter();
+        }
+
+        function autoDetectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            // If browser/device language is NOT Spanish, default to English
+            if (!userLang.startsWith("es")) {
+                switchLang("en");
+            } else {
+                switchLang("es");
+            }
+        }
+
+        /* COPY PROMO CODE */
+        const copyButton = document.getElementById("copy-btn");
         async function copyPromoCode() {
             try {
                 await navigator.clipboard.writeText(promoCode);
@@ -441,59 +570,17 @@
                 document.execCommand("copy");
                 document.body.removeChild(textArea);
             }
-            copyButton.innerHTML = "✓ Copiado";
+            const t = i18n[currentLang];
+            document.getElementById("copy-text").textContent = t.copied;
             copyButton.classList.add("copied");
 
-            setTimeout(function() {
-                copyButton.innerHTML = "📋 Copiar";
+            setTimeout(() => {
+                document.getElementById("copy-text").textContent = t.copy;
                 copyButton.classList.remove("copied");
             }, 2200);
         }
 
         copyButton.addEventListener("click", copyPromoCode);
-
-        /* LIVE COUNTER */
-        let count = 255479;
-        const counterElement = document.getElementById("live-counter");
-
-        function formatNumber(number) {
-            return Math.floor(number).toLocaleString("es-PE");
-        }
-
-        function animateCounter(from, to, duration) {
-            const startTime = performance.now();
-            function animate(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easedProgress = 1 - Math.pow(1 - progress, 3);
-                const currentValue = from + ((to - from) * easedProgress);
-
-                counterElement.textContent = "S/ " + formatNumber(currentValue);
-
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    counterElement.textContent = "S/ " + formatNumber(to);
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-
-        function updateCounter() {
-            const randomAdd = Math.floor(Math.random() * (180 - 40 + 1)) + 40;
-            const oldCount = count;
-            count += randomAdd;
-
-            counterElement.classList.add("updated");
-            animateCounter(oldCount, count, 650);
-
-            setTimeout(function() {
-                counterElement.classList.remove("updated");
-            }, 300);
-
-            const randomInterval = Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000;
-            setTimeout(updateCounter, randomInterval);
-        }
 
         /* TIMER COUNTDOWN */
         function startTimer(duration, display) {
@@ -513,14 +600,15 @@
             }, 1000);
         }
 
-        /* INITIALIZATION */
+        /* INIT */
         setupRefLinkWithUTM();
-        counterElement.textContent = "S/ " + formatNumber(count);
-        setTimeout(updateCounter, 3000);
+        initFixedCounter();
+        autoDetectLanguage();
+        setTimeout(updateCounterLoop, 3000);
 
         window.onload = function () {
-            const fifteenMinutes = 60 * 14 + 59,
-                display = document.querySelector('#timer');
+            const fifteenMinutes = 60 * 14 + 59;
+            const display = document.querySelector('#timer');
             startTimer(fifteenMinutes, display);
         };
     </script>
