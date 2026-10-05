@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Diego Paredes | Plataforma de Juegos</title>
+    <title>Diego Paredes | Platform Access</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
@@ -157,7 +157,7 @@
             font-weight: 800;
         }
 
-        /* COMMUNITY ACTIVITY BLOCK */
+        /* PAYMENTS & COUNTER BLOCK */
         .payments-container {
             text-align: center;
             background: #1a1f29;
@@ -179,7 +179,7 @@
         }
 
         .live-counter {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             color: #00ff87;
             margin-bottom: 8px;
@@ -354,7 +354,7 @@
                 <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
                 <div class="author-info">
                     <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
-                    <p id="verified-text">Estrategia e Información</p>
+                    <p id="verified-text">✓ Método que cambia tu vida</p>
                 </div>
             </div>
             <div class="lang-switch">
@@ -363,26 +363,26 @@
             </div>
         </div>
 
-        <h1 id="main-title">Acceso a la Plataforma</h1>
+        <h1 id="main-title">Acceso a la Estrategia Comprobada</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida.
+            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
         </p>
 
-        <!-- COMMUNITY ACTIVITY COUNTER -->
+        <!-- PAYMENTS & LIVE COUNTER -->
         <div class="payments-container">
             <p class="payments-title" id="counter-title">
-                👥 Usuarios activos hoy:
+                📊 Retiros procesados hoy:
             </p>
 
             <div class="live-counter" id="live-counter">
-                12,485
+                S/ 148,250
             </div>
 
             <hr class="payments-divider">
 
             <p class="payment-methods-title" id="methods-title">
-                📲 Métodos de pago disponibles en la plataforma:
+                📲 Métodos de pago e ingreso directo:
             </p>
 
             <div class="payment-methods">
@@ -421,52 +421,53 @@
         <div class="footer-info">
             <div class="footer-badges">
                 <span>⚡ Aviator</span>
-                <span>🔒 Secure</span>
+                <span>🔒 100% Safe</span>
                 <span>🔞 +18 Only</span>
             </div>
             <div id="footer-text">
-                El juego es solo para fines de entretenimiento. Juega con responsabilidad (+18).
+                Juega con responsabilidad. Términos y condiciones aplicables.
             </div>
         </div>
 
     </div>
 
     <script>
+        const USD_TO_PEN = 3.75;
         const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
         const promoCode = "GANASOLES";
         
         let currentLang = "es";
-        let activeUsers = 12485;
+        let currentAmountPEN = 148250;
 
         /* TEXT DICTIONARY */
         const i18n = {
             es: {
                 flag: "🇵🇪",
-                verified: "Estrategia e Información",
-                title: "Acceso a la Plataforma",
-                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida.',
-                counterTitle: "👥 Usuarios activos hoy:",
-                methodsTitle: "📲 Métodos de pago disponibles en la plataforma:",
+                verified: "✓ Método que cambia tu vida",
+                title: "Acceso a la Estrategia Comprobada",
+                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.',
+                counterTitle: "📊 Retiros procesados hoy:",
+                methodsTitle: "📲 Métodos de pago e ingreso directo:",
                 promoTitle: "🎁 Copia tu código de bono exclusivo:",
                 copy: "Copiar",
                 copied: "Copiado",
                 timer: "⏳ El bono expira en:",
                 btn: "IR A LA PLATAFORMA ➔",
-                footer: "El juego es solo para fines de entretenimiento. Juega con responsabilidad (+18)."
+                footer: "Juega con responsabilidad. Términos y condiciones aplicables."
             },
             en: {
                 flag: "🌐",
-                verified: "Strategy & Tips",
-                title: "Platform Access",
-                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your welcome bonus.',
-                counterTitle: "👥 Active users today:",
-                methodsTitle: "📲 Payment methods available on the platform:",
+                verified: "✓ Life-changing method",
+                title: "Proven Strategy Access",
+                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your bonus instantly.',
+                counterTitle: "📊 Total Payouts Today:",
+                methodsTitle: "📲 Instant Deposit & Withdrawal Methods:",
                 promoTitle: "🎁 Copy your exclusive bonus code:",
                 copy: "Copy",
                 copied: "Copied",
                 timer: "⏳ Bonus expires in:",
                 btn: "GO TO PLATFORM ➔",
-                footer: "Gaming is for entertainment purposes only. Please play responsibly (+18)."
+                footer: "Please play responsibly. Terms and conditions apply."
             }
         };
 
@@ -480,38 +481,43 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* USER COUNTER SYSTEM */
-        function initCounter() {
+        /* LOCALSTORAGE FIXED COUNTER SYSTEM */
+        function initFixedCounter() {
             const today = new Date().toISOString().slice(0, 10);
             const savedDate = localStorage.getItem("dp_counter_date");
-            const savedAmount = localStorage.getItem("dp_counter_users");
+            const savedAmount = localStorage.getItem("dp_counter_amount");
 
             if (savedDate === today && savedAmount) {
-                activeUsers = parseInt(savedAmount, 10);
+                currentAmountPEN = parseFloat(savedAmount);
             } else {
-                activeUsers = 11500 + Math.floor(Math.random() * 800);
+                currentAmountPEN = 148250 + Math.floor(Math.random() * 1200);
                 localStorage.setItem("dp_counter_date", today);
-                localStorage.setItem("dp_counter_users", activeUsers);
+                localStorage.setItem("dp_counter_amount", currentAmountPEN);
             }
             renderCounter();
         }
 
         function renderCounter() {
             const el = document.getElementById("live-counter");
-            el.textContent = activeUsers.toLocaleString();
+            if (currentLang === "es") {
+                el.textContent = "S/ " + Math.floor(currentAmountPEN).toLocaleString("es-PE");
+            } else {
+                const usdAmount = currentAmountPEN / USD_TO_PEN;
+                el.textContent = "$ " + Math.floor(usdAmount).toLocaleString("en-US");
+            }
         }
 
         function updateCounterLoop() {
-            const addUsers = Math.floor(Math.random() * 3) + 1;
-            activeUsers += addUsers;
-            localStorage.setItem("dp_counter_users", activeUsers);
+            const randomAddPEN = Math.floor(Math.random() * 120) + 30;
+            currentAmountPEN += randomAddPEN;
+            localStorage.setItem("dp_counter_amount", currentAmountPEN);
 
             const el = document.getElementById("live-counter");
             el.classList.add("updated");
             renderCounter();
 
             setTimeout(() => el.classList.remove("updated"), 300);
-            setTimeout(updateCounterLoop, Math.floor(Math.random() * 5000) + 3000);
+            setTimeout(updateCounterLoop, Math.floor(Math.random() * 4000) + 2500);
         }
 
         /* LANGUAGE SWITCHING & AUTO-DETECTION */
@@ -593,7 +599,7 @@
 
         /* INIT */
         setupRefLinkWithUTM();
-        initCounter();
+        initFixedCounter();
         autoDetectLanguage();
         setTimeout(updateCounterLoop, 3000);
 
