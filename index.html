@@ -315,6 +315,58 @@
             font-weight: bold;
             color: #888e9b;
         }
+
+        /* POPUP TOAST NOTIFICATION */
+        .toast-notification {
+            position: fixed;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            background: rgba(18, 22, 29, 0.95);
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            border-radius: 30px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 255, 102, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            opacity: 0;
+            pointer-events: none;
+            width: max-content;
+            max-width: 90vw;
+        }
+
+        .toast-notification.show {
+            bottom: 16px;
+            opacity: 1;
+        }
+
+        .toast-icon {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 102, 0.15);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+        }
+
+        .toast-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .toast-text .amount {
+            color: #00ff66;
+            font-weight: 900;
+        }
     </style>
 </head>
 
@@ -373,8 +425,8 @@
                 </button>
             </div>
 
-            <div class="timer-text" id="timer-box">
-                ⏳ El bono expira en: <span id="timer">14:59</span>
+            <div class="timer-text">
+                <span id="timer-label">⏳ El bono expira en:</span> <span id="timer">14:59</span>
             </div>
         </div>
 
@@ -397,11 +449,65 @@
 
     </div>
 
+    <!-- TOAST POPUP NOTIFICATION -->
+    <div id="toast-popup" class="toast-notification">
+        <div class="toast-icon">💸</div>
+        <div id="toast-text" class="toast-text"></div>
+    </div>
+
     <script>
         const BASE_OFFER_URL = "https://w-one477.com/v3/aviator-fire?p=349u";
         const promoCode = "GANASOLES";
         
         let currentLang = "es";
+
+        /* DATA SETS FOR NOTIFICATIONS */
+        const notificationsData = {
+            es: {
+                payouts: [
+                    { name: "Juan", amount: "S/ 350" },
+                    { name: "Julio", amount: "S/ 100" },
+                    { name: "Diego", amount: "S/ 15,000" },
+                    { name: "Mateo", amount: "S/ 500" },
+                    { name: "Carlos", amount: "S/ 1,200" },
+                    { name: "Luis", amount: "S/ 850" },
+                    { name: "Jorge", amount: "S/ 3,400" },
+                    { name: "Gonzalo", amount: "S/ 250" },
+                    { name: "Hernán", amount: "S/ 2,100" },
+                    { name: "Renzo", amount: "S/ 450" },
+                    { name: "Gabriel", amount: "S/ 9,800" },
+                    { name: "Sandro", amount: "S/ 600" },
+                    { name: "Paolo", amount: "S/ 18,500" },
+                    { name: "Ramiro", amount: "S/ 35,000" },
+                    { name: "Fabricio", amount: "S/ 750" }
+                ],
+                usersText: "usuarios están usando la estrategia ahora mismo",
+                payoutPrefix: "acaba de retirar"
+            },
+            en: {
+                payouts: [
+                    { name: "John", amount: "$100" },
+                    { name: "Bob", amount: "$40" },
+                    { name: "Mike", amount: "$200" },
+                    { name: "Ivan", amount: "$90" },
+                    { name: "Alex", amount: "$10,000" },
+                    { name: "David", amount: "$500" },
+                    { name: "Chris", amount: "$1,500" },
+                    { name: "Mark", amount: "$300" },
+                    { name: "James", amount: "$2,800" },
+                    { name: "Daniel", amount: "$650" },
+                    { name: "Robert", amount: "$4,200" },
+                    { name: "Kevin", amount: "$150" },
+                    { name: "Brian", amount: "$8,500" },
+                    { name: "Steven", amount: "$700" },
+                    { name: "Jason", amount: "$3,100" }
+                ],
+                usersText: "users are using the strategy right now",
+                payoutPrefix: "just withdrew"
+            }
+        };
+
+        const activeUsersList = [42, 68, 95, 120, 142, 178, 215, 89, 134, 160];
 
         /* TEXT DICTIONARY */
         const i18n = {
@@ -414,7 +520,7 @@
                 promoTitle: "🎁 Copia tu código de bono exclusivo:",
                 copy: "Copiar",
                 copied: "Copiado",
-                timer: "⏳ El bono expira en:",
+                timerLabel: "⏳ El bono expira en:",
                 btn: "IR A LA PLATAFORMA ➔",
                 footer: "Juega con responsabilidad. Términos y condiciones aplicables."
             },
@@ -427,7 +533,7 @@
                 promoTitle: "🎁 Copy your exclusive bonus code:",
                 copy: "Copy",
                 copied: "Copied",
-                timer: "⏳ Bonus expires in:",
+                timerLabel: "⏳ Bonus expires in:",
                 btn: "GO TO PLATFORM ➔",
                 footer: "Please play responsibly. Terms and conditions apply."
             }
@@ -457,7 +563,7 @@
             document.getElementById("methods-title").textContent = t.methodsTitle;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
-            document.getElementById("timer-box").innerHTML = `${t.timer} <span id="timer">${document.getElementById("timer").textContent}</span>`;
+            document.getElementById("timer-label").textContent = t.timerLabel;
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("footer-text").textContent = t.footer;
         }
@@ -499,12 +605,13 @@
 
         copyButton.addEventListener("click", copyPromoCode);
 
-        /* TIMER COUNTDOWN */
+        /* TIMER COUNTDOWN FIX */
         function startTimer(duration, display) {
-            let timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+            let timer = duration;
+            
+            function updateTimer() {
+                let minutes = parseInt(timer / 60, 10);
+                let seconds = parseInt(timer % 60, 10);
 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -514,7 +621,51 @@
                 if (--timer < 0) {
                     timer = duration;
                 }
-            }, 1000);
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        /* POPUP NOTIFICATION ROTATOR */
+        let payoutIndex = 0;
+        let usersIndex = 0;
+        let showCounterStep = 0;
+
+        function triggerNotification() {
+            const toast = document.getElementById("toast-popup");
+            const toastText = document.getElementById("toast-text");
+            const langData = notificationsData[currentLang];
+
+            // Mix logic: 2 payout messages followed by 1 active users count message
+            if (showCounterStep >= 2) {
+                const count = activeUsersList[usersIndex % activeUsersList.length];
+                toastText.innerHTML = `⚡ <span class="amount">${count}</span> ${langData.usersText}`;
+                usersIndex++;
+                showCounterStep = 0;
+            } else {
+                const item = langData.payouts[payoutIndex % langData.payouts.length];
+                toastText.innerHTML = `<strong>${item.name}</strong> ${langData.payoutPrefix} <span class="amount">${item.amount}</span>`;
+                payoutIndex++;
+                showCounterStep++;
+            }
+
+            // Show popup
+            toast.classList.add("show");
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+        function startNotifications() {
+            // Trigger first notification after 1.5s
+            setTimeout(() => {
+                triggerNotification();
+                // Then repeat every 4.7 seconds
+                setInterval(triggerNotification, 4700);
+            }, 1500);
         }
 
         /* INIT */
@@ -522,9 +673,10 @@
         autoDetectLanguage();
 
         window.onload = function () {
-            const fifteenMinutes = 60 * 14 + 59;
+            const fourteenMinutesFiftyNine = 60 * 14 + 59;
             const display = document.querySelector('#timer');
-            startTimer(fifteenMinutes, display);
+            startTimer(fourteenMinutesFiftyNine, display);
+            startNotifications();
         };
     </script>
 
