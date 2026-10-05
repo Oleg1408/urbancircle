@@ -316,35 +316,28 @@
             color: #888e9b;
         }
 
-        /* POPUP TOAST NOTIFICATION FIXED STYLES */
-        .toast-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translate(-50%, 100px);
-            z-index: 999999;
-            background: #12161d;
-            border: 1px solid #00ff66;
-            border-radius: 30px;
-            padding: 10px 18px;
-            display: none; /* controlled by JS */
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 255, 102, 0.3);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
-            opacity: 0;
-            width: max-content;
-            max-width: 90vw;
-        }
-
-        .toast-notification.active-toast {
-            display: flex !important;
-            opacity: 1 !important;
-            transform: translate(-50%, 0) !important;
+        /* GUARANTEED VISIBLE TOAST POPUP */
+        #toast-popup {
+            position: fixed !important;
+            bottom: 24px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 99999999 !important;
+            background-color: #12161d !important;
+            border: 1px solid #00ff66 !important;
+            border-radius: 30px !important;
+            padding: 10px 20px !important;
+            display: none; /* JS switches to flex */
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 255, 102, 0.4) !important;
+            width: max-content !important;
+            max-width: 92vw !important;
         }
 
         .toast-icon {
-            font-size: 15px;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -352,6 +345,7 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .toast-text {
@@ -384,8 +378,8 @@
                 </div>
             </div>
             <div class="lang-switch">
-                <button class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
-                <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+                <button type="button" class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+                <button type="button" class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
             </div>
         </div>
 
@@ -448,7 +442,7 @@
     </div>
 
     <!-- TOAST POPUP NOTIFICATION -->
-    <div id="toast-popup" class="toast-notification">
+    <div id="toast-popup">
         <div class="toast-icon">💸</div>
         <div id="toast-text" class="toast-text"></div>
     </div>
@@ -547,7 +541,7 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* LANGUAGE SWITCHING */
+        /* LANGUAGE SWITCHING (Does NOT touch the timer element) */
         function switchLang(lang) {
             currentLang = lang;
             document.getElementById("btn-es").classList.toggle("active", lang === 'es');
@@ -561,7 +555,7 @@
             document.getElementById("methods-title").textContent = t.methodsTitle;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
-            document.getElementById("timer-label").textContent = t.timerLabel; // Изменяем только текст метки, таймер не затрагиваем
+            document.getElementById("timer-label").textContent = t.timerLabel;
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("footer-text").textContent = t.footer;
         }
@@ -603,14 +597,19 @@
 
         copyButton.addEventListener("click", copyPromoCode);
 
-        /* INDEPENDENT TIMER COUNTDOWN */
-        let secondsLeft = 14 * 60 + 59; // 14:59
-        function initTimer() {
-            const display = document.getElementById('timer');
-            
-            setInterval(() => {
-                let minutes = Math.floor(secondsLeft / 60);
-                let seconds = secondsLeft % 60;
+        /* SINGLE GLOBAL TIMER OBJECT */
+        window.TimerState = {
+            secondsLeft: 14 * 60 + 59,
+            timerInterval: null
+        };
+
+        function startGlobalTimer() {
+            if (window.TimerState.timerInterval) return;
+
+            window.TimerState.timerInterval = setInterval(() => {
+                const display = document.getElementById('timer');
+                let minutes = Math.floor(window.TimerState.secondsLeft / 60);
+                let seconds = window.TimerState.secondsLeft % 60;
 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -619,25 +618,24 @@
                     display.textContent = minutes + ":" + seconds;
                 }
 
-                if (--secondsLeft < 0) {
-                    secondsLeft = 14 * 60 + 59; // Сброс на заново при истечении
+                if (--window.TimerState.secondsLeft < 0) {
+                    window.TimerState.secondsLeft = 14 * 60 + 59;
                 }
             }, 1000);
         }
 
-        /* POPUP NOTIFICATION ROTATOR */
+        /* POPUP NOTIFICATION ENGINE */
         let payoutIndex = 0;
         let usersIndex = 0;
         let showCounterStep = 0;
 
-        function triggerNotification() {
+        function showNotification() {
             const toast = document.getElementById("toast-popup");
             const toastText = document.getElementById("toast-text");
             if (!toast || !toastText) return;
 
             const langData = notificationsData[currentLang];
 
-            // 2 выплаты, затем 1 сообщение о пользователях
             if (showCounterStep >= 2) {
                 const count = activeUsersList[usersIndex % activeUsersList.length];
                 toastText.innerHTML = `⚡ <span class="amount">${count}</span> ${langData.usersText}`;
@@ -650,30 +648,28 @@
                 showCounterStep++;
             }
 
-            // Показ плашки
-            toast.classList.add("active-toast");
+            // Show element explicitly
+            toast.style.display = "flex";
 
-            // Скрытие через 3 секунды
+            // Hide element explicitly after 3 seconds
             setTimeout(() => {
-                toast.classList.remove("active-toast");
+                toast.style.display = "none";
             }, 3000);
         }
 
-        function startNotifications() {
-            // Первый показ через 1.5 секунды
+        function startNotificationLoop() {
             setTimeout(() => {
-                triggerNotification();
-                // Повтор каждые 4.8 секунды
-                setInterval(triggerNotification, 4800);
-            }, 1500);
+                showNotification();
+                setInterval(showNotification, 4500);
+            }, 1000);
         }
 
-        /* START ALL ON LOAD */
-        window.addEventListener('DOMContentLoaded', () => {
+        /* INIT ON DOM READY */
+        document.addEventListener("DOMContentLoaded", function () {
             setupRefLinkWithUTM();
             autoDetectLanguage();
-            initTimer();
-            startNotifications();
+            startGlobalTimer();
+            startNotificationLoop();
         });
     </script>
 
