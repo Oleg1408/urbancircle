@@ -434,7 +434,7 @@
         <h1 id="main-title">Acceso Oficial a la Plataforma</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y desbloquea el protocolo de bienvenida.
+            Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y recibe tu bono de bienvenida.
         </p>
 
         <!-- FEATURE BADGES BLOCK -->
@@ -444,9 +444,9 @@
             </p>
 
             <div class="features-list">
-                <div class="feature-item">🚀 Algoritmo Inteligente</div>
-                <div class="feature-item">🔒 Conexión Segura</div>
-                <div class="feature-item">📲 Soporte 24/7</div>
+                <div class="feature-item" id="feat-1">🚀 Algoritmo Inteligente</div>
+                <div class="feature-item" id="feat-2">🔒 Conexión Segura</div>
+                <div class="feature-item" id="feat-3">📲 Soporte 24/7</div>
             </div>
         </div>
 
@@ -500,7 +500,7 @@
         
         let currentLang = "es";
 
-        /* DATA SETS FOR NOTIFICATIONS (Clean, Community-focused) */
+        /* DATA SETS FOR NOTIFICATIONS */
         const notificationsData = {
             es: {
                 payouts: [
@@ -532,14 +532,17 @@
 
         const activeUsersList = [142, 168, 195, 220, 242, 278, 315, 189, 234];
 
-        /* TEXT DICTIONARY */
+        /* DICTIONARY WITH FULL ENGLISH & SPANISH TRANSLATIONS */
         const i18n = {
             es: {
                 flag: "🇵🇪",
                 verified: "✓ Estrategia Comprobada",
                 title: "Acceso Oficial a la Plataforma",
-                subtitle: 'Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y desbloquea el protocolo de bienvenida.',
+                subtitle: 'Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y recibe tu bono de bienvenida.',
                 methodsTitle: "⚡ Ventajas del acceso directo:",
+                feat1: "🚀 Algoritmo Inteligente",
+                feat2: "🔒 Conexión Segura",
+                feat3: "📲 Soporte 24/7",
                 promoTitle: "🎁 Tu código de acceso exclusivo:",
                 copy: "Copiar",
                 copied: "Copiado",
@@ -551,8 +554,11 @@
                 flag: "🌐",
                 verified: "✓ Verified Strategy",
                 title: "Official Platform Access",
-                subtitle: 'Join the private community, use code <span class="highlight-green">GANASOLES</span> and unlock your welcome protocol.',
+                subtitle: 'Join the private community, use code <span class="highlight-green">GANASOLES</span> and claim your welcome bonus.',
                 methodsTitle: "⚡ Direct Access Benefits:",
+                feat1: "🚀 Smart Algorithm",
+                feat2: "🔒 Secure Connection",
+                feat3: "📲 24/7 Support",
                 promoTitle: "🎁 Your exclusive access code:",
                 copy: "Copy",
                 copied: "Copied",
@@ -584,6 +590,9 @@
             document.getElementById("main-title").textContent = t.title;
             document.getElementById("main-subtitle").innerHTML = t.subtitle;
             document.getElementById("methods-title").textContent = t.methodsTitle;
+            document.getElementById("feat-1").textContent = t.feat1;
+            document.getElementById("feat-2").textContent = t.feat2;
+            document.getElementById("feat-3").textContent = t.feat3;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
             document.getElementById("timer-label").textContent = t.timerLabel;
