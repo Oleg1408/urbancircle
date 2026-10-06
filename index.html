@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Diego Paredes | Platform Access</title>
+    <title>Diego Paredes | Official Access</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
@@ -20,12 +20,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #0a0a0c;
+            background-color: #060709;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -33,7 +33,21 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            padding: 12px;
+            padding: 16px;
+        }
+
+        /* DYNAMIC GLOW BACKGROUND */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(255, 204, 0, 0.08) 50%, rgba(0,0,0,0) 70%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .bg-overlay {
@@ -43,45 +57,43 @@
             width: 100%;
             height: 100%;
             background:
-                linear-gradient(
-                    180deg,
-                    rgba(10, 10, 12, 0.85) 0%,
-                    rgba(10, 10, 12, 0.96) 100%
-                ),
-                url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000&auto=format&fit=crop')
+                radial-gradient(ellipse at top, rgba(18, 24, 38, 0.8) 0%, rgba(6, 7, 9, 0.98) 100%),
+                url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop')
                 center/cover no-repeat;
-            filter: blur(8px);
+            filter: blur(12px);
             transform: scale(1.08);
             z-index: 1;
+            opacity: 0.5;
         }
 
+        /* MAIN CARD CONTAINER */
         .card {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 390px;
-            background: rgba(22, 24, 30, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 204, 0, 0.3);
-            border-radius: 20px;
-            padding: 16px 14px 16px;
+            max-width: 400px;
+            background: rgba(15, 18, 26, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 20px 18px 18px;
             text-align: center;
             box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 30px 60px rgba(0, 0, 0, 0.9),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
-        /* HEADER & LANG SWITCHER */
+        /* HEADER & AUTHOR BOX */
         .author-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 12px;
             border-radius: 50px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .author-left {
@@ -92,133 +104,139 @@
         }
 
         .author-avatar {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #00ff66;
+            border: 2px solid #00ff88;
+            box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
         }
 
         .author-info h2 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 800;
             color: #ffffff;
             line-height: 1.2;
+            letter-spacing: 0.2px;
         }
 
         .author-info p {
-            font-size: 10px;
-            color: #00ff66;
+            font-size: 11px;
+            color: #00ff88;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .lang-switch {
             display: flex;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 20px;
-            padding: 2px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .lang-btn {
             background: transparent;
             border: none;
             color: #888;
-            padding: 4px 8px;
+            padding: 4px 10px;
             font-size: 10px;
             font-weight: 800;
             border-radius: 14px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .lang-btn.active {
-            background: #ffcc00;
+            background: linear-gradient(135deg, #ffcc00 0%, #ffa800 100%);
             color: #000;
+            box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
         }
 
         h1 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 6px;
+            line-height: 1.25;
+            margin-bottom: 8px;
             color: #ffffff;
+            letter-spacing: -0.3px;
+            background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            color: #c0c4d0;
+            color: #9ca3af;
             font-size: 12px;
-            line-height: 1.35;
-            margin-bottom: 12px;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            padding: 0 4px;
         }
 
         .highlight-green {
-            color: #00ff66;
-            font-weight: 800;
+            color: #00ff88;
+            font-weight: 700;
         }
 
-        /* PAYMENTS BLOCK */
-        .payments-container {
+        /* FEATURE BADGES BLOCK */
+        .features-container {
             text-align: center;
-            background: #1a1f29;
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 10px 12px;
             border-radius: 14px;
             width: 100%;
-            margin: 0 auto 12px;
-            color: #ffffff;
-            border: 1px solid #2d3545;
+            margin: 0 auto 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .payment-methods-title {
+        .features-title {
             font-size: 10px;
-            color: #9aa8bc;
-            margin-bottom: 6px;
+            color: #6b7280;
+            margin-bottom: 8px;
             text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
-        .payment-methods {
+        .features-list {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             align-items: center;
             flex-wrap: wrap;
         }
 
-        .payment-method {
+        .feature-item {
             display: flex;
             align-items: center;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 10px;
-            color: white;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 11px;
+            color: #e5e7eb;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .yape { background: #742385; border: none; }
-        .plin { background: #00b4c5; border: none; }
-        .visa { background: #1a1f71; border: none; }
-        .mc { background: #eb001b; border: none; }
-        .crypto { background: #26a17b; border: none; }
-
-        /* PROMO & TIMER */
+        /* PROMO & TIMER BOX */
         .promo-box {
-            background: rgba(255, 204, 0, 0.08);
-            border: 1px dashed #ffcc00;
-            border-radius: 12px;
-            padding: 12px 10px;
-            margin-bottom: 12px;
+            background: linear-gradient(180deg, rgba(255, 204, 0, 0.06) 0%, rgba(255, 204, 0, 0.02) 100%);
+            border: 1px dashed rgba(255, 204, 0, 0.5);
+            border-radius: 16px;
+            padding: 14px 12px;
+            margin-bottom: 16px;
+            position: relative;
         }
 
         .promo-title {
-            font-size: 10px;
+            font-size: 11px;
             color: #d1d5db;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            letter-spacing: 0.6px;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
@@ -226,46 +244,67 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
 
         .promo-code {
             color: #ffcc00;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 900;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             user-select: all;
+            text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
         }
 
         .copy-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
-            background: rgba(255, 204, 0, 0.14);
-            border: 1px solid rgba(255, 204, 0, 0.65);
+            gap: 5px;
+            background: rgba(255, 204, 0, 0.12);
+            border: 1px solid rgba(255, 204, 0, 0.6);
             color: #ffcc00;
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-size: 10px;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 11px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
+        .copy-btn:hover {
+            background: rgba(255, 204, 0, 0.22);
+        }
+
         .copy-btn:active { transform: scale(0.95); }
 
         .copy-btn.copied {
-            color: #00ff66;
-            border-color: #00ff66;
-            background: rgba(0, 255, 102, 0.1);
+            color: #00ff88;
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.15);
         }
 
-        .timer-text {
+        .timer-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             font-size: 11px;
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        .timer-badge {
+            background: rgba(255, 77, 77, 0.12);
             color: #ff4d4d;
-            font-weight: 700;
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-family: monospace;
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
         /* MAIN BUTTON */
@@ -273,47 +312,54 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 8px;
             width: 100%;
-            padding: 14px 10px;
-            background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
-            color: #000000;
+            padding: 16px 12px;
+            background: linear-gradient(135deg, #00ff88 0%, #00b359 100%);
+            color: #04150c;
             font-size: 15px;
             font-weight: 900;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.35);
-            animation: pulse 2s infinite;
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.35);
+            animation: pulse 2.5s infinite;
             border: none;
             cursor: pointer;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 28px rgba(0, 255, 136, 0.45);
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.6); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(0, 255, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); }
+            70% { box-shadow: 0 0 0 14px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
         /* FOOTER INFO */
         .footer-info {
-            font-size: 9px;
-            color: #6c727f;
-            line-height: 1.3;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 8px;
+            font-size: 10px;
+            color: #6b7280;
+            line-height: 1.4;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 10px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
         }
 
         .footer-badges {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            color: #888e9b;
+            gap: 12px;
+            font-weight: 600;
+            color: #9ca3af;
         }
 
         /* GUARANTEED VISIBLE TOAST POPUP */
@@ -323,47 +369,49 @@
             left: 50% !important;
             transform: translateX(-50%) !important;
             z-index: 99999999 !important;
-            background-color: #12161d !important;
-            border: 1px solid #00ff66 !important;
+            background: rgba(18, 22, 31, 0.92) !important;
+            backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(0, 255, 136, 0.4) !important;
             border-radius: 30px !important;
-            padding: 10px 20px !important;
-            display: none; /* JS switches to flex */
+            padding: 10px 18px !important;
+            display: none;
             align-items: center !important;
             justify-content: center !important;
             gap: 10px !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 255, 102, 0.4) !important;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 136, 0.25) !important;
             width: max-content !important;
-            max-width: 92vw !important;
+            max-width: 90vw !important;
         }
 
         .toast-icon {
-            font-size: 16px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 255, 102, 0.2);
-            width: 28px;
-            height: 28px;
+            background: rgba(0, 255, 136, 0.15);
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             flex-shrink: 0;
         }
 
         .toast-text {
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 600;
             color: #ffffff;
             white-space: nowrap;
         }
 
-        .toast-text .amount {
-            color: #00ff66;
-            font-weight: 900;
+        .toast-text .highlight {
+            color: #00ff88;
+            font-weight: 800;
         }
     </style>
 </head>
 
 <body>
 
+    <div class="bg-glow"></div>
     <div class="bg-overlay"></div>
 
     <div class="card">
@@ -374,7 +422,7 @@
                 <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
                 <div class="author-info">
                     <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
-                    <p id="verified-text">✓ Método que cambia tu vida</p>
+                    <p id="verified-text">✓ Estrategia Comprobada</p>
                 </div>
             </div>
             <div class="lang-switch">
@@ -383,31 +431,29 @@
             </div>
         </div>
 
-        <h1 id="main-title">Acceso a la Estrategia Comprobada</h1>
+        <h1 id="main-title">Acceso Oficial a la Plataforma</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.
+            Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y desbloquea el protocolo de bienvenida.
         </p>
 
-        <!-- PAYMENTS BLOCK -->
-        <div class="payments-container">
-            <p class="payment-methods-title" id="methods-title">
-                📲 Métodos de pago e ingreso directo:
+        <!-- FEATURE BADGES BLOCK -->
+        <div class="features-container">
+            <p class="features-title" id="methods-title">
+                ⚡ Ventajas del acceso directo:
             </p>
 
-            <div class="payment-methods">
-                <div class="payment-method yape">Yape</div>
-                <div class="payment-method plin">Plin</div>
-                <div class="payment-method visa">VISA</div>
-                <div class="payment-method mc">Mastercard</div>
-                <div class="payment-method crypto">USDT / Crypto</div>
+            <div class="features-list">
+                <div class="feature-item">🚀 Algoritmo Inteligente</div>
+                <div class="feature-item">🔒 Conexión Segura</div>
+                <div class="feature-item">📲 Soporte 24/7</div>
             </div>
         </div>
 
         <!-- PROMO CODE & TIMER -->
         <div class="promo-box">
             <div class="promo-title" id="promo-title">
-                🎁 Copia tu código de bono exclusivo:
+                🎁 Tu código de acceso exclusivo:
             </div>
 
             <div class="promo-code-row">
@@ -417,25 +463,26 @@
                 </button>
             </div>
 
-            <div class="timer-text">
-                <span id="timer-label">⏳ El bono expira en:</span> <span id="timer">14:59</span>
+            <div class="timer-wrapper">
+                <span id="timer-label">⏳ La reserva de plaza expira en:</span>
+                <span class="timer-badge" id="timer">14:59</span>
             </div>
         </div>
 
         <!-- MAIN BUTTON -->
         <a href="#" id="offer-link" class="btn-main">
-            <span id="btn-text">IR A LA PLATAFORMA ➔</span>
+            <span id="btn-text">ACTIVAR MI ACCESO AHORA ➔</span>
         </a>
 
         <!-- FOOTER LOW-PRIORITY INFO -->
         <div class="footer-info">
             <div class="footer-badges">
-                <span>⚡ Aviator</span>
-                <span>🔒 100% Safe</span>
-                <span>🔞 +18 Only</span>
+                <span>⚡ Private Community</span>
+                <span>🔒 SSL Encrypted</span>
+                <span>🌐 Verified Platform</span>
             </div>
             <div id="footer-text">
-                Juega con responsabilidad. Términos y condiciones aplicables.
+                Acceso reservado a miembros registrados. Aplican términos del club.
             </div>
         </div>
 
@@ -443,7 +490,7 @@
 
     <!-- TOAST POPUP NOTIFICATION -->
     <div id="toast-popup">
-        <div class="toast-icon">💸</div>
+        <div class="toast-icon">✨</div>
         <div id="toast-text" class="toast-text"></div>
     </div>
 
@@ -453,81 +500,65 @@
         
         let currentLang = "es";
 
-        /* DATA SETS FOR NOTIFICATIONS */
+        /* DATA SETS FOR NOTIFICATIONS (Clean, Community-focused) */
         const notificationsData = {
             es: {
                 payouts: [
-                    { name: "Juan", amount: "S/ 350" },
-                    { name: "Julio", amount: "S/ 100" },
-                    { name: "Diego", amount: "S/ 15,000" },
-                    { name: "Mateo", amount: "S/ 500" },
-                    { name: "Carlos", amount: "S/ 1,200" },
-                    { name: "Luis", amount: "S/ 850" },
-                    { name: "Jorge", amount: "S/ 3,400" },
-                    { name: "Gonzalo", amount: "S/ 250" },
-                    { name: "Hernán", amount: "S/ 2,100" },
-                    { name: "Renzo", amount: "S/ 450" },
-                    { name: "Gabriel", amount: "S/ 9,800" },
-                    { name: "Sandro", amount: "S/ 600" },
-                    { name: "Paolo", amount: "S/ 18,500" },
-                    { name: "Ramiro", amount: "S/ 35,000" },
-                    { name: "Fabricio", amount: "S/ 750" }
+                    { name: "Juan M.", action: "activó la estrategia" },
+                    { name: "Julio C.", action: "se unió al club privado" },
+                    { name: "Diego R.", action: "aplicó el código GANASOLES" },
+                    { name: "Mateo S.", action: "obtuvo acceso directo" },
+                    { name: "Carlos L.", action: "activó su cuenta VIP" },
+                    { name: "Luis G.", action: "se unió a la comunidad" },
+                    { name: "Jorge T.", action: "inició la sesión de acceso" },
+                    { name: "Gonzalo P.", action: "aplicó el código exclusivo" }
                 ],
-                usersText: "usuarios están usando la estrategia ahora mismo",
-                payoutPrefix: "acaba de retirar"
+                usersText: "usuarios activos en la plataforma en este momento",
+                payoutPrefix: ""
             },
             en: {
                 payouts: [
-                    { name: "John", amount: "$100" },
-                    { name: "Bob", amount: "$40" },
-                    { name: "Mike", amount: "$200" },
-                    { name: "Ivan", amount: "$90" },
-                    { name: "Alex", amount: "$10,000" },
-                    { name: "David", amount: "$500" },
-                    { name: "Chris", amount: "$1,500" },
-                    { name: "Mark", amount: "$300" },
-                    { name: "James", amount: "$2,800" },
-                    { name: "Daniel", amount: "$650" },
-                    { name: "Robert", amount: "$4,200" },
-                    { name: "Kevin", amount: "$150" },
-                    { name: "Brian", amount: "$8,500" },
-                    { name: "Steven", amount: "$700" },
-                    { name: "Jason", amount: "$3,100" }
+                    { name: "John M.", action: "activated the strategy" },
+                    { name: "Bob C.", action: "joined the private club" },
+                    { name: "Mike R.", action: "applied code GANASOLES" },
+                    { name: "David S.", action: "got instant access" },
+                    { name: "Chris L.", action: "activated VIP status" },
+                    { name: "Alex G.", action: "joined the platform" }
                 ],
-                usersText: "users are using the strategy right now",
-                payoutPrefix: "just withdrew"
+                usersText: "active users online right now",
+                payoutPrefix: ""
             }
         };
 
-        const activeUsersList = [42, 68, 95, 120, 142, 178, 215, 89, 134, 160];
+        const activeUsersList = [142, 168, 195, 220, 242, 278, 315, 189, 234];
 
         /* TEXT DICTIONARY */
         const i18n = {
             es: {
                 flag: "🇵🇪",
-                verified: "✓ Método que cambia tu vida",
-                title: "Acceso a la Estrategia Comprobada",
-                subtitle: 'Regístrate en la plataforma, aplica el código <span class="highlight-green">GANASOLES</span> y activa tu bono de bienvenida al instante.',
-                methodsTitle: "📲 Métodos de pago e ingreso directo:",
-                promoTitle: "🎁 Copia tu código de bono exclusivo:",
+                verified: "✓ Estrategia Comprobada",
+                title: "Acceso Oficial a la Plataforma",
+                subtitle: 'Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y desbloquea el protocolo de bienvenida.',
+                methodsTitle: "⚡ Ventajas del acceso directo:",
+                promoTitle: "🎁 Tu código de acceso exclusivo:",
                 copy: "Copiar",
                 copied: "Copiado",
-                timerLabel: "⏳ El bono expira en:",
-                btn: "IR A LA PLATAFORMA ➔",
-                footer: "Juega con responsabilidad. Términos y condiciones aplicables."
+                timerLabel: "⏳ La reserva expira en:",
+                btn: "ACTIVAR MI ACCESO AHORA ➔",
+                footer: "Acceso reservado a miembros registrados. Aplican términos del club."
             },
             en: {
                 flag: "🌐",
-                verified: "✓ Life-changing method",
-                title: "Proven Strategy Access",
-                subtitle: 'Register on the platform, use code <span class="highlight-green">GANASOLES</span> and activate your bonus instantly.',
-                methodsTitle: "📲 Instant Deposit & Withdrawal Methods:",
-                promoTitle: "🎁 Copy your exclusive bonus code:",
+                verified: "✓ Verified Strategy",
+                title: "Official Platform Access",
+                subtitle: 'Join the private community, use code <span class="highlight-green">GANASOLES</span> and unlock your welcome protocol.',
+                methodsTitle: "⚡ Direct Access Benefits:",
+                promoTitle: "🎁 Your exclusive access code:",
                 copy: "Copy",
                 copied: "Copied",
-                timerLabel: "⏳ Bonus expires in:",
-                btn: "GO TO PLATFORM ➔",
-                footer: "Please play responsibly. Terms and conditions apply."
+                timerLabel: "⏳ Reservation expires in:",
+                btn: "ACTIVATE MY ACCESS NOW ➔",
+                footer: "Access restricted to registered members. Terms apply."
             }
         };
 
@@ -541,7 +572,7 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* LANGUAGE SWITCHING (Does NOT touch the timer element) */
+        /* LANGUAGE SWITCHING */
         function switchLang(lang) {
             currentLang = lang;
             document.getElementById("btn-es").classList.toggle("active", lang === 'es');
@@ -597,7 +628,7 @@
 
         copyButton.addEventListener("click", copyPromoCode);
 
-        /* SINGLE GLOBAL TIMER OBJECT */
+        /* TIMER ENGINE */
         window.TimerState = {
             secondsLeft: 14 * 60 + 59,
             timerInterval: null
@@ -638,30 +669,28 @@
 
             if (showCounterStep >= 2) {
                 const count = activeUsersList[usersIndex % activeUsersList.length];
-                toastText.innerHTML = `⚡ <span class="amount">${count}</span> ${langData.usersText}`;
+                toastText.innerHTML = `🔥 <span class="highlight">${count}</span> ${langData.usersText}`;
                 usersIndex++;
                 showCounterStep = 0;
             } else {
                 const item = langData.payouts[payoutIndex % langData.payouts.length];
-                toastText.innerHTML = `<strong>${item.name}</strong> ${langData.payoutPrefix} <span class="amount">${item.amount}</span>`;
+                toastText.innerHTML = `<strong>${item.name}</strong> ${item.action}`;
                 payoutIndex++;
                 showCounterStep++;
             }
 
-            // Show element explicitly
             toast.style.display = "flex";
 
-            // Hide element explicitly after 3 seconds
             setTimeout(() => {
                 toast.style.display = "none";
-            }, 3000);
+            }, 3200);
         }
 
         function startNotificationLoop() {
             setTimeout(() => {
                 showNotification();
-                setInterval(showNotification, 4500);
-            }, 1000);
+                setInterval(showNotification, 5000);
+            }, 1200);
         }
 
         /* INIT ON DOM READY */
