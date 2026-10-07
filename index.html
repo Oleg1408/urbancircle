@@ -56,9 +56,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background:
+            background: 
                 radial-gradient(ellipse at top, rgba(18, 24, 38, 0.8) 0%, rgba(6, 7, 9, 0.98) 100%),
-                url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop')
+                url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop') 
                 center/cover no-repeat;
             filter: blur(12px);
             transform: scale(1.08);
@@ -79,7 +79,7 @@
             border-radius: 24px;
             padding: 20px 18px 18px;
             text-align: center;
-            box-shadow:
+            box-shadow: 
                 0 30px 60px rgba(0, 0, 0, 0.9),
                 inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
@@ -91,7 +91,7 @@
             justify-content: space-between;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 8px 12px;
+            padding: 10px 14px;
             border-radius: 50px;
             margin-bottom: 16px;
         }
@@ -129,30 +129,33 @@
             gap: 4px;
         }
 
+        /* УВЕЛИЧЕННЫЕ И ЗАМЕТНЫЕ КНОПКИ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА */
         .lang-switch {
             display: flex;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            padding: 3px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 24px;
+            padding: 4px;
+            border: 1px solid rgba(255, 204, 0, 0.4);
+            box-shadow: 0 0 12px rgba(255, 204, 0, 0.15);
         }
 
         .lang-btn {
             background: transparent;
             border: none;
-            color: #888;
-            padding: 4px 10px;
-            font-size: 10px;
-            font-weight: 800;
-            border-radius: 14px;
+            color: #aaa;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 900;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.25s ease;
+            letter-spacing: 0.5px;
         }
 
         .lang-btn.active {
             background: linear-gradient(135deg, #ffcc00 0%, #ffa800 100%);
             color: #000;
-            box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
         }
 
         h1 {
@@ -621,15 +624,6 @@
             document.getElementById("footer-text").textContent = t.footer;
         }
 
-        function autoDetectLanguage() {
-            const userLang = navigator.language || navigator.userLanguage || '';
-            if (!userLang.toLowerCase().startsWith("es")) {
-                switchLang("en");
-            } else {
-                switchLang("es");
-            }
-        }
-
         /* COPY PROMO CODE */
         const copyButton = document.getElementById("copy-btn");
         async function copyPromoCode() {
@@ -726,7 +720,7 @@
         /* INIT ON DOM READY */
         document.addEventListener("DOMContentLoaded", function () {
             setupRefLinkWithUTM();
-            autoDetectLanguage();
+            switchLang("es"); // Устанавливаем испанский по умолчанию принудительно
             startGlobalTimer();
             startNotificationLoop();
         });
