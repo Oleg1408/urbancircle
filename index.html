@@ -1,295 +1,704 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Diego Paredes | Direct Access</title>
 
-    <title>Diego Paredes | Direct Access</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-ZCNSEV7WSP');
+</script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCNSEV7WSP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-ZCNSEV7WSP');
-    </script>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+    body {
+        background-color: #060709;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        padding: 16px;
+    }
+
+    /* DYNAMIC GLOW BACKGROUND */
+    .bg-glow {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(255, 204, 0, 0.08) 50%, rgba(0,0,0,0) 70%);
+        filter: blur(60px);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at top, rgba(18, 24, 38, 0.8) 0%, rgba(6, 7, 9, 0.98) 100%),
+            url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop')
+            center/cover no-repeat;
+        filter: blur(12px);
+        transform: scale(1.08);
+        z-index: 1;
+        opacity: 0.5;
+    }
+
+    /* MAIN CARD CONTAINER */
+    .card {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 400px;
+        background: rgba(15, 18, 26, 0.75);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 24px;
+        padding: 20px 18px 18px;
+        text-align: center;
+        box-shadow:
+            0 30px 60px rgba(0, 0, 0, 0.9),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* HEADER & AUTHOR BOX */
+    .author-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 12px;
+        border-radius: 50px;
+        margin-bottom: 16px;
+    }
+
+    .author-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .author-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #00ff88;
+        box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+    }
+
+    .author-info h2 {
+        font-size: 14px;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.2;
+        letter-spacing: 0.2px;
+    }
+
+    .author-info p {
+        font-size: 11px;
+        color: #00ff88;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .lang-switch {
+        display: flex;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: none;
+        color: #888;
+        padding: 4px 10px;
+        font-size: 10px;
+        font-weight: 800;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+        background: linear-gradient(135deg, #ffcc00 0%, #ffa800 100%);
+        color: #000;
+        box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
+    }
+
+    h1 {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 8px;
+        color: #ffffff;
+        letter-spacing: -0.3px;
+        background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+        color: #9ca3af;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+        padding: 0 4px;
+    }
+
+    .highlight-green {
+        color: #00ff88;
+        font-weight: 700;
+    }
+
+    /* FEATURE BADGES BLOCK */
+    .features-container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 10px 12px;
+        border-radius: 14px;
+        width: 100%;
+        margin: 0 auto 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .features-title {
+        font-size: 10px;
+        color: #6b7280;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+    }
+
+    .features-list {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 11px;
+        color: #e5e7eb;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* PROMO & TIMER BOX */
+    .promo-box {
+        background: linear-gradient(180deg, rgba(255, 204, 0, 0.06) 0%, rgba(255, 204, 0, 0.02) 100%);
+        border: 1px dashed rgba(255, 204, 0, 0.5);
+        border-radius: 16px;
+        padding: 14px 12px;
+        margin-bottom: 16px;
+        position: relative;
+    }
+
+    .promo-title {
+        font-size: 11px;
+        color: #d1d5db;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .promo-code-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .promo-code {
+        color: #ffcc00;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        user-select: all;
+        text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+    }
+
+    .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        background: rgba(255, 204, 0, 0.12);
+        border: 1px solid rgba(255, 204, 0, 0.6);
+        color: #ffcc00;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 11px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+        background: rgba(255, 204, 0, 0.22);
+    }
+
+    .copy-btn:active { transform: scale(0.95); }
+
+    .copy-btn.copied {
+        color: #00ff88;
+        border-color: #00ff88;
+        background: rgba(0, 255, 136, 0.15);
+    }
+
+    .timer-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 11px;
+        color: #9ca3af;
+        font-weight: 600;
+    }
+
+    .timer-badge {
+        background: rgba(255, 77, 77, 0.12);
+        color: #ff4d4d;
+        border: 1px solid rgba(255, 77, 77, 0.3);
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-family: monospace;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    /* MAIN BUTTON */
+    .btn-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 16px 12px;
+        background: linear-gradient(135deg, #00ff88 0%, #00b359 100%);
+        color: #04150c;
+        font-size: 15px;
+        font-weight: 900;
+        text-decoration: none;
+        border-radius: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 24px rgba(0, 255, 136, 0.35);
+        animation: pulse 2.5s infinite;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 14px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-main:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 28px rgba(0, 255, 136, 0.45);
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); }
+        70% { box-shadow: 0 0 0 14px rgba(0, 255, 136, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+    }
+
+    /* FOOTER INFO */
+    .footer-info {
+        font-size: 10px;
+        color: #6b7280;
+        line-height: 1.4;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .footer-badges {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        font-weight: 600;
+        color: #9ca3af;
+    }
+
+    /* GUARANTEED VISIBLE TOAST POPUP */
+    #toast-popup {
+        position: fixed !important;
+        bottom: 24px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 99999999 !important;
+        background: rgba(18, 22, 31, 0.92) !important;
+        backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(0, 255, 136, 0.4) !important;
+        border-radius: 30px !important;
+        padding: 10px 18px !important;
+        display: none;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 136, 0.25) !important;
+        width: max-content !important;
+        max-width: 90vw !important;
+    }
+
+    .toast-icon {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 255, 136, 0.15);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .toast-text {
+        font-size: 12px;
+        font-weight: 600;
+        color: #ffffff;
+        white-space: nowrap;
+    }
+
+    .toast-text .highlight {
+        color: #00ff88;
+        font-weight: 800;
+    }
+</style>
+
+
+<div class="bg-glow"></div>
+<div class="bg-overlay"></div>
+
+<div class="card">
+
+    <!-- HEADER & LANG SWITCHER -->
+    <div class="author-box">
+        <div class="author-left">
+            <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
+            <div class="author-info">
+                <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
+                <p id="verified-text">✓ Estrategia Comprobada</p>
+            </div>
+        </div>
+        <div class="lang-switch">
+            <button type="button" class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+            <button type="button" class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+        </div>
+    </div>
+
+    <h1 id="main-title">Acceso Exclusivo a la Plataforma</h1>
+
+    <p class="subtitle" id="main-subtitle">
+        Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y recibe tu bono de bienvenida.
+    </p>
+
+    <!-- FEATURE BADGES BLOCK -->
+    <div class="features-container">
+        <p class="features-title" id="methods-title">
+            ⚡ Ventajas del acceso directo:
+        </p>
+
+        <div class="features-list">
+            <div class="feature-item" id="feat-1">🚀 Algoritmo Inteligente</div>
+            <div class="feature-item" id="feat-2">🔒 Conexión Segura</div>
+            <div class="feature-item" id="feat-3">📲 Soporte 24/7</div>
+        </div>
+    </div>
+
+    <!-- PROMO CODE & TIMER -->
+    <div class="promo-box">
+        <div class="promo-title" id="promo-title">
+            🎁 Tu código de acceso exclusivo:
+        </div>
+
+        <div class="promo-code-row">
+            <div class="promo-code" id="promo-code">GANASOLES</div>
+            <button type="button" class="copy-btn" id="copy-btn">
+                📋 <span id="copy-text">Copiar</span>
+            </button>
+        </div>
+
+        <div class="timer-wrapper">
+            <span id="timer-label">⏳ La reserva de plaza expira en:</span>
+            <span class="timer-badge" id="timer">14:59</span>
+        </div>
+    </div>
+
+    <!-- MAIN BUTTON -->
+    <a href="#" id="offer-link" class="btn-main">
+        <span id="btn-text">ACTIVAR MI ACCESO AHORA ➔</span>
+    </a>
+
+    <!-- FOOTER LOW-PRIORITY INFO -->
+    <div class="footer-info">
+        <div class="footer-badges">
+            <span>⚡ Private Community</span>
+            <span>🔒 SSL Encrypted</span>
+            <span>⚡ Instant Access</span>
+        </div>
+        <div id="footer-text">
+            Acceso reservado a miembros registrados. Aplican términos del club.
+        </div>
+    </div>
+
+</div>
+
+<!-- TOAST POPUP NOTIFICATION -->
+<div id="toast-popup">
+    <div class="toast-icon">✨</div>
+    <div id="toast-text" class="toast-text"></div>
+</div>
+
+<script>
+    const BASE_OFFER_URL = "https://one-vv4204.com/?open=register&p=tb2e";
+    const promoCode = "GANASOLES";
+    
+    let currentLang = "es";
+
+    /* DATA SETS FOR NOTIFICATIONS */
+    const notificationsData = {
+        es: {
+            payouts: [
+                { name: "Juan M.", action: "activó la estrategia" },
+                { name: "Julio C.", action: "se unió al club privado" },
+                { name: "Diego R.", action: "aplicó el código GANASOLES" },
+                { name: "Mateo S.", action: "obtuvo acceso directo" },
+                { name: "Carlos L.", action: "activó su cuenta VIP" },
+                { name: "Luis G.", action: "se unió a la comunidad" },
+                { name: "Jorge T.", action: "inició la sesión de acceso" },
+                { name: "Gonzalo P.", action: "aplicó el código exclusivo" }
+            ],
+            usersText: "usuarios activos en la plataforma en este momento",
+            payoutPrefix: ""
+        },
+        en: {
+            payouts: [
+                { name: "John M.", action: "activated the strategy" },
+                { name: "Bob C.", action: "joined the private club" },
+                { name: "Mike R.", action: "applied code GANASOLES" },
+                { name: "David S.", action: "got instant access" },
+                { name: "Chris L.", action: "activated VIP status" },
+                { name: "Alex G.", action: "joined the platform" }
+            ],
+            usersText: "active users online right now",
+            payoutPrefix: ""
+        }
+    };
+
+    const activeUsersList = [142, 168, 195, 220, 242, 278, 315, 189, 234];
+
+    /* DICTIONARY WITH FULL ENGLISH & SPANISH TRANSLATIONS */
+    const i18n = {
+        es: {
+            flag: "🇵🇪",
+            verified: "✓ Estrategia Comprobada",
+            title: "Acceso Exclusivo a la Plataforma",
+            subtitle: 'Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y recibe tu bono de bienvenida.',
+            methodsTitle: "⚡ Ventajas del acceso directo:",
+            feat1: "🚀 Algoritmo Inteligente",
+            feat2: "🔒 Conexión Segura",
+            feat3: "📲 Soporte 24/7",
+            promoTitle: "🎁 Tu código de acceso exclusivo:",
+            copy: "Copiar",
+            copied: "Copiado",
+            timerLabel: "⏳ La reserva expira en:",
+            btn: "ACTIVAR MI ACCESO AHORA ➔",
+            footer: "Acceso reservado a miembros registrados. Aplican términos del club."
+        },
+        en: {
+            flag: "🌐",
+            verified: "✓ Verified Strategy",
+            title: "Exclusive Platform Access",
+            subtitle: 'Join the private community, use code <span class="highlight-green">GANASOLES</span> and claim your welcome bonus.',
+            methodsTitle: "⚡ Direct Access Benefits:",
+            feat1: "🚀 Smart Algorithm",
+            feat2: "🔒 Secure Connection",
+            feat3: "📲 24/7 Support",
+            promoTitle: "🎁 Your exclusive access code:",
+            copy: "Copy",
+            copied: "Copied",
+            timerLabel: "⏳ Reservation expires in:",
+            btn: "ACTIVATE MY ACCESS NOW ➔",
+            footer: "Access restricted to registered members. Terms apply."
+        }
+    };
+
+    /* UTM PARSER */
+    function setupRefLinkWithUTM() {
+        const currentParams = new URLSearchParams(window.location.search);
+        const targetUrl = new URL(BASE_OFFER_URL);
+        currentParams.forEach((value, key) => {
+            targetUrl.searchParams.set(key, value);
+        });
+        document.getElementById("offer-link").href = targetUrl.toString();
+    }
+
+    /* LANGUAGE SWITCHING */
+    function switchLang(lang) {
+        currentLang = lang;
+        document.getElementById("btn-es").classList.toggle("active", lang === 'es');
+        document.getElementById("btn-en").classList.toggle("active", lang === 'en');
+
+        const t = i18n[lang];
+        document.getElementById("geo-flag").textContent = t.flag;
+        document.getElementById("verified-text").textContent = t.verified;
+        document.getElementById("main-title").textContent = t.title;
+        document.getElementById("main-subtitle").innerHTML = t.subtitle;
+        document.getElementById("methods-title").textContent = t.methodsTitle;
+        document.getElementById("feat-1").textContent = t.feat1;
+        document.getElementById("feat-2").textContent = t.feat2;
+        document.getElementById("feat-3").textContent = t.feat3;
+        document.getElementById("promo-title").textContent = t.promoTitle;
+        document.getElementById("copy-text").textContent = t.copy;
+        document.getElementById("timer-label").textContent = t.timerLabel;
+        document.getElementById("btn-text").textContent = t.btn;
+        document.getElementById("footer-text").textContent = t.footer;
+    }
+
+    function autoDetectLanguage() {
+        const userLang = navigator.language || navigator.userLanguage || '';
+        if (!userLang.toLowerCase().startsWith("es")) {
+            switchLang("en");
+        } else {
+            switchLang("es");
+        }
+    }
+
+    /* COPY PROMO CODE */
+    const copyButton = document.getElementById("copy-btn");
+    async function copyPromoCode() {
+        try {
+            await navigator.clipboard.writeText(promoCode);
+        } catch (error) {
+            const textArea = document.createElement("textarea");
+            textArea.value = promoCode;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+        }
+        const t = i18n[currentLang];
+        document.getElementById("copy-text").textContent = t.copied;
+        copyButton.classList.add("copied");
+
+        setTimeout(() => {
+            document.getElementById("copy-text").textContent = t.copy;
+            copyButton.classList.remove("copied");
+        }, 2200);
+    }
+
+    copyButton.addEventListener("click", copyPromoCode);
+
+    /* TIMER ENGINE */
+    window.TimerState = {
+        secondsLeft: 14 * 60 + 59,
+        timerInterval: null
+    };
+
+    function startGlobalTimer() {
+        if (window.TimerState.timerInterval) return;
+
+        window.TimerState.timerInterval = setInterval(() => {
+            const display = document.getElementById('timer');
+            let minutes = Math.floor(window.TimerState.secondsLeft / 60);
+            let seconds = window.TimerState.secondsLeft % 60;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (display) {
+                display.textContent = minutes + ":" + seconds;
+            }
+
+            if (--window.TimerState.secondsLeft < 0) {
+                window.TimerState.secondsLeft = 14 * 60 + 59;
+            }
+        }, 1000);
+    }
+
+    /* POPUP NOTIFICATION ENGINE */
+    let payoutIndex = 0;
+    let usersIndex = 0;
+    let showCounterStep = 0;
+
+    function showNotification() {
+        const toast = document.getElementById("toast-popup");
+        const toastText = document.getElementById("toast-text");
+        if (!toast || !toastText) return;
+
+        const langData = notificationsData[currentLang];
+
+        if (showCounterStep >= 2) {
+            const count = activeUsersList[usersIndex % activeUsersList.length];
+            toastText.innerHTML = `🔥 <span class="highlight">${count}</span> ${langData.usersText}`;
+            usersIndex++;
+            showCounterStep = 0;
+        } else {
+            const item = langData.payouts[payoutIndex % langData.payouts.length];
+            toastText.innerHTML = `<strong>${item.name}</strong> ${item.action}`;
+            payoutIndex++;
+            showCounterStep++;
         }
 
-        body {
-            background-color: #060709;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            padding: 16px;
-        }
+        toast.style.display = "flex";
 
-        /* DYNAMIC GLOW BACKGROUND */
-        .bg-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(255, 204, 0, 0.08) 50%, rgba(0,0,0,0) 70%);
-            filter: blur(60px);
-            z-index: 0;
-            pointer-events: none;
-        }
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, 3200);
+    }
 
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at top, rgba(18, 24, 38, 0.8) 0%, rgba(6, 7, 9, 0.98) 100%),
-                url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop')
-                center/cover no-repeat;
-            filter: blur(12px);
-            transform: scale(1.08);
-            z-index: 1;
-            opacity: 0.5;
-        }
+    function startNotificationLoop() {
+        setTimeout(() => {
+            showNotification();
+            setInterval(showNotification, 5000);
+        }, 1200);
+    }
 
-        /* MAIN CARD CONTAINER */
-        .card {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 400px;
-            background: rgba(15, 18, 26, 0.75);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 20px 18px 18px;
-            text-align: center;
-            box-shadow:
-                0 30px 60px rgba(0, 0, 0, 0.9),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        /* HEADER & AUTHOR BOX */
-        .author-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 8px 12px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-
-        .author-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-align: left;
-        }
-
-        .author-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #00ff88;
-            box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
-        }
-
-        .author-info h2 {
-            font-size: 14px;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.2;
-            letter-spacing: 0.2px;
-        }
-
-        .author-info p {
-            font-size: 11px;
-            color: #00ff88;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .lang-switch {
-            display: flex;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            padding: 3px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #888;
-            padding: 4px 10px;
-            font-size: 10px;
-            font-weight: 800;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, #ffcc00 0%, #ffa800 100%);
-            color: #000;
-            box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
-        }
-
-        h1 {
-            font-size: 20px;
-            font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 8px;
-            color: #ffffff;
-            letter-spacing: -0.3px;
-            background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            color: #9ca3af;
-            font-size: 12px;
-            line-height: 1.4;
-            margin-bottom: 16px;
-            padding: 0 4px;
-        }
-
-        .highlight-green {
-            color: #00ff88;
-            font-weight: 700;
-        }
-
-        /* FEATURE BADGES BLOCK */
-        .features-container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 10px 12px;
-            border-radius: 14px;
-            width: 100%;
-            margin: 0 auto 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .features-title {
-            font-size: 10px;
-            color: #6b7280;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-        }
-
-        .features-list {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 11px;
-            color: #e5e7eb;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* PROMO & TIMER BOX */
-        .promo-box {
-            background: linear-gradient(180deg, rgba(255, 204, 0, 0.06) 0%, rgba(255, 204, 0, 0.02) 100%);
-            border: 1px dashed rgba(255, 204, 0, 0.5);
-            border-radius: 16px;
-            padding: 14px 12px;
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .promo-title {
-            font-size: 11px;
-            color: #d1d5db;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .promo-code-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .promo-code {
-            color: #ffcc00;
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            user-select: all;
-            text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
-        }
-
-        .copy-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            background: rgba(255, 204, 0, 0.12);
-            border: 1px solid rgba(255, 204, 0, 0.6);
-            color: #ffcc00;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 11px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .copy-btn:hover {
-            background: rgba(255, 204, 0, 0.22);
-        }
-
-        .copy-btn:active { transform: scale(0.95); }
-
-        .copy-btn.copied {
-            color: #00ff88;
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.15);
-        }
-
-        .timer-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 11px;
-            color: #9ca3af;
-            font
+    /* INIT ON DOM READY */
+    document.addEventListener("DOMContentLoaded", function () {
+        setupRefLinkWithUTM();
+        autoDetectLanguage();
+        startGlobalTimer();
+        startNotificationLoop();
+    });
+</script>
