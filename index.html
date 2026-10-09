@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -310,6 +310,46 @@
             letter-spacing: 1px;
         }
 
+        /* STEP BY STEP INSTRUCTION BLOCK */
+        .instruction-box {
+            background: rgba(0, 255, 136, 0.04);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 14px;
+            padding: 10px 12px;
+            margin-bottom: 14px;
+            text-align: left;
+        }
+
+        .instruction-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .instruction-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 11px;
+            color: #d1d5db;
+            font-weight: 500;
+        }
+
+        .instruction-steps div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .instruction-steps span {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
         /* MAIN BUTTON */
         .btn-main {
             display: flex;
@@ -445,57 +485,67 @@
             <div class="author-left">
                 <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
                 <div class="author-info">
-                    <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
-                    <p id="verified-text">✓ Estrategia Comprobada</p>
+                    <h2>Diego Paredes <span id="geo-flag">🌐</span></h2>
+                    <p id="verified-text">✓ Verified Strategy</p>
                 </div>
             </div>
             <div class="lang-switch">
-                <button type="button" class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
-                <button type="button" class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+                <button type="button" class="lang-btn" id="btn-es" onclick="switchLang('es')">ES</button>
+                <button type="button" class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
             </div>
         </div>
 
-        <h1 id="main-title">Acceso Exclusivo a la Plataforma</h1>
+        <h1 id="main-title">Exclusive Platform Access</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Únete a la comunidad privada, activa el código <span class="highlight-green">GANASOLES</span> y recibe tu bono de bienvenida.
+            Join the private community, use code <span class="highlight-green">GANASOLES</span> and claim your welcome bonus.
         </p>
 
         <!-- FEATURE BADGES BLOCK -->
         <div class="features-container">
             <p class="features-title" id="methods-title">
-                ⚡ Ventajas del acceso directo:
+                ⚡ Direct Access Benefits:
             </p>
 
             <div class="features-list">
-                <div class="feature-item" id="feat-1">🚀 Algoritmo Inteligente</div>
-                <div class="feature-item" id="feat-2">🔒 Conexión Segura</div>
-                <div class="feature-item" id="feat-3">📲 Soporte 24/7</div>
+                <div class="feature-item" id="feat-1">🚀 Smart Algorithm</div>
+                <div class="feature-item" id="feat-2">🔒 Secure Connection</div>
+                <div class="feature-item" id="feat-3">📲 24/7 Support</div>
             </div>
         </div>
 
         <!-- PROMO CODE & TIMER -->
         <div class="promo-box">
             <div class="promo-title" id="promo-title">
-                🎁 Tu código de acceso exclusivo:
+                🎁 Your exclusive access code:
             </div>
 
             <div class="promo-code-row">
                 <div class="promo-code" id="promo-code">GANASOLES</div>
                 <button type="button" class="copy-btn" id="copy-btn">
-                    📋 <span id="copy-text">Copiar</span>
+                    📋 <span id="copy-text">Copy</span>
                 </button>
             </div>
 
             <div class="timer-wrapper">
-                <span id="timer-label">⏳ La reserva de plaza expira en:</span>
+                <span id="timer-label">⏳ Reservation expires in:</span>
                 <span class="timer-badge" id="timer">14:59</span>
+            </div>
+        </div>
+
+        <!-- SHORT INSTRUCTION BLOCK -->
+        <div class="instruction-box">
+            <div class="instruction-title" id="inst-header">How to start:</div>
+            <div class="instruction-steps" id="inst-steps">
+                <div><span>1.</span> Click the activation button below</div>
+                <div><span>2.</span> Register a quick account</div>
+                <div><span>3.</span> Apply code <b>GANASOLES</b> & get bonus</div>
             </div>
         </div>
 
         <!-- MAIN BUTTON -->
         <a href="#" id="offer-link" class="btn-main">
-            <span id="btn-text">ACTIVAR MI ACCESO AHORA ➔</span>
+            <span id="btn-text">ACTIVATE MY ACCESS NOW ➔</span>
         </a>
 
         <!-- FOOTER LOW-PRIORITY INFO -->
@@ -506,7 +556,7 @@
                 <span>⚡ Instant Access</span>
             </div>
             <div id="footer-text">
-                Acceso reservado a miembros registrados. Aplican términos del club.
+                Access restricted to registered members. Terms apply.
             </div>
         </div>
 
@@ -522,7 +572,7 @@
         const BASE_OFFER_URL = "https://one-vv3591.com/?open=register&p=tb2e";
         const promoCode = "GANASOLES";
         
-        let currentLang = "es";
+        let currentLang = "en";
 
         /* DATA SETS FOR NOTIFICATIONS */
         const notificationsData = {
@@ -571,6 +621,10 @@
                 copy: "Copiar",
                 copied: "Copiado",
                 timerLabel: "⏳ La reserva expira en:",
+                instHeader: "Cómo empezar:",
+                step1: "Haz clic en el botón de abajo",
+                step2: "Regístrate rápidamente",
+                step3: "Aplica el código <b>GANASOLES</b> y recibe tu bono",
                 btn: "ACTIVAR MI ACCESO AHORA ➔",
                 footer: "Acceso reservado a miembros registrados. Aplican términos del club."
             },
@@ -587,6 +641,10 @@
                 copy: "Copy",
                 copied: "Copied",
                 timerLabel: "⏳ Reservation expires in:",
+                instHeader: "How to start:",
+                step1: "Click the activation button below",
+                step2: "Register a quick account",
+                step3: "Apply code <b>GANASOLES</b> & get bonus",
                 btn: "ACTIVATE MY ACCESS NOW ➔",
                 footer: "Access restricted to registered members. Terms apply."
             }
@@ -620,6 +678,15 @@
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
             document.getElementById("timer-label").textContent = t.timerLabel;
+            
+            // Instruction update
+            document.getElementById("inst-header").textContent = t.instHeader;
+            document.getElementById("inst-steps").innerHTML = `
+                <div><span>1.</span> ${t.step1}</div>
+                <div><span>2.</span> ${t.step2}</div>
+                <div><span>3.</span> ${t.step3}</div>
+            `;
+
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("footer-text").textContent = t.footer;
         }
@@ -720,7 +787,7 @@
         /* INIT ON DOM READY */
         document.addEventListener("DOMContentLoaded", function () {
             setupRefLinkWithUTM();
-            switchLang("es"); // Устанавливаем испанский по умолчанию принудительно
+            switchLang("en"); // Устанавливаем английский язык по умолчанию
             startGlobalTimer();
             startNotificationLoop();
         });
