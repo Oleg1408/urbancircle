@@ -66,7 +66,7 @@
             opacity: 0.4;
         }
 
-        /* MAIN CARD CONTAINER (Адаптивный под мобилки и ПК, не выглядит мелким) */
+        /* MAIN CARD CONTAINER */
         .card {
             position: relative;
             z-index: 2;
@@ -193,6 +193,7 @@
         .payments-grid {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 6px;
             flex-wrap: wrap;
         }
@@ -205,6 +206,10 @@
             display: inline-flex;
             align-items: center;
             gap: 3px;
+        }
+
+        .pay-badge.hidden {
+            display: none !important;
         }
 
         .pay-yape { background: #74119B; color: #fff; }
@@ -383,9 +388,9 @@
         <div class="payments-box">
             <div class="payments-title" id="pay-title">💳 Métodos de Pago Habilitados:</div>
             <div class="payments-grid">
-                <span class="pay-badge pay-yape">Yape</span>
-                <span class="pay-badge pay-plin">Plin</span>
-                <span class="pay-badge pay-bcp">BCP</span>
+                <span class="pay-badge pay-peru pay-yape">Yape</span>
+                <span class="pay-badge pay-peru pay-plin">Plin</span>
+                <span class="pay-badge pay-peru pay-bcp">BCP</span>
                 <span class="pay-badge pay-visa">Visa</span>
                 <span class="pay-badge pay-mc">Mastercard</span>
                 <span class="pay-badge pay-crypto">Crypto</span>
@@ -411,8 +416,8 @@
         <!-- FOOTER LOW-PRIORITY INFO -->
         <div class="footer-info">
             <div class="footer-badges">
-                <span>🔒 SSL Seguro</span>
-                <span>⚡ Retiros Instantáneos</span>
+                <span id="foot-badge-1">🔒 SSL Seguro</span>
+                <span id="foot-badge-2">⚡ Retiros Instantáneos</span>
                 <span>🔞 18+</span>
             </div>
             <div id="footer-text">
@@ -445,11 +450,13 @@
                 copied: "Copiado",
                 toastCopied: "¡Código <span class='highlight'>GANASOLES</span> copiado!",
                 btn: "ACCEDER A LA PLATAFORMA ➔",
+                footBadge1: "🔒 SSL Seguro",
+                footBadge2: "⚡ Retiros Instantáneos",
                 footer: "Acceso exclusivo. Juega con responsabilidad."
             },
             en: {
                 flag: "🌐",
-                verified: "✓ Official Hub",
+                verified: "✓ Official Community Hub",
                 title: "The System That Changed My Life",
                 subtitle: 'From zero to financial freedom. Use code <span class="highlight-green">GANASOLES</span> to activate your initial bonus.',
                 payTitle: "💳 Supported Payment Methods:",
@@ -458,6 +465,8 @@
                 copied: "Copied",
                 toastCopied: "Code <span class='highlight'>GANASOLES</span> copied!",
                 btn: "ACCESS PLATFORM NOW ➔",
+                footBadge1: "🔒 SSL Encrypted",
+                footBadge2: "⚡ Instant Withdrawals",
                 footer: "Exclusive access. Play responsibly."
             }
         };
@@ -485,7 +494,19 @@
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
             document.getElementById("btn-text").textContent = t.btn;
+            document.getElementById("foot-badge-1").textContent = t.footBadge1;
+            document.getElementById("foot-badge-2").textContent = t.footBadge2;
             document.getElementById("footer-text").textContent = t.footer;
+
+            // Скрытие/Показ перуанских плашек в зависимости от языка
+            const peruBadges = document.querySelectorAll(".pay-peru");
+            peruBadges.forEach(badge => {
+                if (lang === "en") {
+                    badge.classList.add("hidden");
+                } else {
+                    badge.classList.remove("hidden");
+                }
+            });
         }
 
         function showToast(messageHtml) {
