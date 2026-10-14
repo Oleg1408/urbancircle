@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -31,9 +31,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden; /* Запрещаем скролл, всё на 1 экране */
             position: relative;
-            padding: 16px;
+            padding: 10px;
         }
 
         /* DYNAMIC GLOW BACKGROUND */
@@ -42,10 +42,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(255, 204, 0, 0.08) 50%, rgba(0,0,0,0) 70%);
-            filter: blur(60px);
+            filter: blur(50px);
             z-index: 0;
             pointer-events: none;
         }
@@ -60,28 +60,26 @@
                 radial-gradient(ellipse at top, rgba(18, 24, 38, 0.8) 0%, rgba(6, 7, 9, 0.98) 100%),
                 url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop') 
                 center/cover no-repeat;
-            filter: blur(12px);
+            filter: blur(10px);
             transform: scale(1.08);
             z-index: 1;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
-        /* MAIN CARD CONTAINER */
+        /* MAIN CARD CONTAINER (КОМПАКТНЫЙ ПОД МОБИЛКИ) */
         .card {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 420px;
-            background: rgba(15, 18, 26, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            max-width: 390px;
+            background: rgba(15, 18, 26, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 24px 20px 20px;
+            border-radius: 20px;
+            padding: 14px 16px;
             text-align: center;
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.9),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         /* HEADER & AUTHOR BOX */
@@ -91,80 +89,72 @@
             justify-content: space-between;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 10px 14px;
-            border-radius: 50px;
-            margin-bottom: 20px;
+            padding: 6px 10px;
+            border-radius: 40px;
+            margin-bottom: 10px;
         }
 
         .author-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-align: left;
         }
 
         .author-avatar {
-            width: 42px;
-            height: 42px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #00ff88;
-            box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
         }
 
         .author-info h2 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             color: #ffffff;
-            line-height: 1.2;
-            letter-spacing: 0.2px;
+            line-height: 1.1;
         }
 
         .author-info p {
-            font-size: 11px;
+            font-size: 10px;
             color: #00ff88;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
         /* LANG SWITCHER */
         .lang-switch {
             display: flex;
             background: rgba(0, 0, 0, 0.7);
-            border-radius: 24px;
-            padding: 4px;
+            border-radius: 20px;
+            padding: 3px;
             border: 1px solid rgba(255, 204, 0, 0.4);
-            box-shadow: 0 0 12px rgba(255, 204, 0, 0.15);
         }
 
         .lang-btn {
             background: transparent;
             border: none;
             color: #aaa;
-            padding: 8px 14px;
-            font-size: 12px;
+            padding: 5px 10px;
+            font-size: 11px;
             font-weight: 900;
-            border-radius: 20px;
+            border-radius: 16px;
             cursor: pointer;
-            transition: all 0.25s ease;
-            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
         }
 
         .lang-btn.active {
             background: linear-gradient(135deg, #ffcc00 0%, #ffa800 100%);
             color: #000;
-            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 10px;
+            line-height: 1.2;
+            margin-bottom: 6px;
             color: #ffffff;
-            letter-spacing: -0.3px;
             background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -172,10 +162,9 @@
 
         .subtitle {
             color: #9ca3af;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            padding: 0 4px;
+            font-size: 11.5px;
+            line-height: 1.35;
+            margin-bottom: 10px;
         }
 
         .highlight-green {
@@ -183,62 +172,21 @@
             font-weight: 700;
         }
 
-        /* FEATURE BADGES BLOCK */
-        .features-container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 12px;
-            border-radius: 14px;
-            width: 100%;
-            margin: 0 auto 18px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .features-title {
-            font-size: 10px;
-            color: #6b7280;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-        }
-
-        .features-list {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 11px;
-            color: #e5e7eb;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
         /* CLEAN PROMO BOX */
         .promo-box {
             background: linear-gradient(180deg, rgba(255, 204, 0, 0.06) 0%, rgba(255, 204, 0, 0.02) 100%);
             border: 1px dashed rgba(255, 204, 0, 0.4);
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 18px;
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 10px;
         }
 
         .promo-title {
-            font-size: 11px;
+            font-size: 10px;
             color: #d1d5db;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
             font-weight: 700;
         }
 
@@ -246,39 +194,32 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .promo-code {
             color: #ffcc00;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             user-select: all;
-            text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
         }
 
         .copy-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 4px;
             background: rgba(255, 204, 0, 0.12);
             border: 1px solid rgba(255, 204, 0, 0.6);
             color: #ffcc00;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 11px;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 10px;
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
-        .copy-btn:hover {
-            background: rgba(255, 204, 0, 0.22);
-        }
-
-        .copy-btn:active { transform: scale(0.95); }
 
         .copy-btn.copied {
             color: #00ff88;
@@ -286,136 +227,76 @@
             background: rgba(0, 255, 136, 0.15);
         }
 
-        /* INSTRUCTION BLOCK */
-        .instruction-box {
-            background: rgba(0, 255, 136, 0.04);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            border-radius: 14px;
-            padding: 12px;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-
-        .instruction-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #00ff88;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        .instruction-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            font-size: 11px;
-            color: #d1d5db;
-            font-weight: 500;
-        }
-
-        .instruction-steps div {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .instruction-steps span {
-            color: #00ff88;
-            font-weight: 700;
-        }
-
         /* MAIN BUTTON */
         .btn-main {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             width: 100%;
-            padding: 16px 12px;
+            padding: 13px 10px;
             background: linear-gradient(135deg, #00ff88 0%, #00b359 100%);
             color: #04150c;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 900;
             text-decoration: none;
-            border-radius: 14px;
+            border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.35);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.35);
             animation: pulse 2.5s infinite;
             border: none;
             cursor: pointer;
-            margin-bottom: 16px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-main:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 12px 28px rgba(0, 255, 136, 0.45);
+            margin-bottom: 8px;
         }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); }
-            70% { box-shadow: 0 0 0 14px rgba(0, 255, 136, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
         /* FOOTER INFO */
         .footer-info {
-            font-size: 10px;
+            font-size: 9.5px;
             color: #6b7280;
-            line-height: 1.4;
+            line-height: 1.2;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 12px;
+            padding-top: 8px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
         }
 
         .footer-badges {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
             font-weight: 600;
             color: #9ca3af;
         }
 
-        /* TOAST NOTIFICATION */
+        /* TOAST POPUP NOTIFICATION */
         #toast-popup {
             position: fixed !important;
-            bottom: 24px !important;
+            bottom: 20px !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             z-index: 99999999 !important;
-            background: rgba(18, 22, 31, 0.92) !important;
-            backdrop-filter: blur(12px) !important;
+            background: rgba(18, 22, 31, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
             border: 1px solid rgba(0, 255, 136, 0.4) !important;
-            border-radius: 30px !important;
-            padding: 10px 18px !important;
+            border-radius: 20px !important;
+            padding: 8px 14px !important;
             display: none;
             align-items: center !important;
             justify-content: center !important;
-            gap: 10px !important;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 136, 0.25) !important;
-            width: max-content !important;
-            max-width: 90vw !important;
-        }
-
-        .toast-icon {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 255, 136, 0.15);
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            flex-shrink: 0;
+            gap: 8px !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8) !important;
         }
 
         .toast-text {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: #ffffff;
             white-space: nowrap;
@@ -424,15 +305,6 @@
         .toast-text .highlight {
             color: #00ff88;
             font-weight: 800;
-        }
-
-        /* MOBILE RESPONSIVE FIXES */
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            .card { padding: 20px 16px 16px; border-radius: 20px; }
-            h1 { font-size: 18px; }
-            .promo-code { font-size: 20px; }
-            .btn-main { padding: 14px 10px; font-size: 14px; }
         }
     </style>
 </head>
@@ -449,73 +321,47 @@
             <div class="author-left">
                 <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
                 <div class="author-info">
-                    <h2>Diego Paredes <span id="geo-flag">🌐</span></h2>
-                    <p id="verified-text">✓ Verified Community Hub</p>
+                    <h2>Diego Paredes <span id="geo-flag">🇵🇪</span></h2>
+                    <p id="verified-text">✓ Canal Oficial Perú</p>
                 </div>
             </div>
             <div class="lang-switch">
-                <button type="button" class="lang-btn" id="btn-es" onclick="switchLang('es')">ES</button>
-                <button type="button" class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+                <button type="button" class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+                <button type="button" class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
             </div>
         </div>
 
-        <h1 id="main-title">Private Community & Strategy Hub</h1>
+        <h1 id="main-title">La Plataforma que Cambió mi Vida</h1>
 
         <p class="subtitle" id="main-subtitle">
-            Welcome! Connect to the private platform, use code <span class="highlight-green">GANASOLES</span> to activate your welcome bonuses.
+            De cero a la libertad financiera. Usa el código <span class="highlight-green">GANASOLES</span> para activar tu bono inicial.
         </p>
-
-        <!-- FEATURE BADGES BLOCK -->
-        <div class="features-container">
-            <p class="features-title" id="methods-title">
-                ⚡ Platform Highlights:
-            </p>
-
-            <div class="features-list">
-                <div class="feature-item" id="feat-1">🚀 Smart System</div>
-                <div class="feature-item" id="feat-2">🔒 Secure Connection</div>
-                <div class="feature-item" id="feat-3">📲 24/7 Support</div>
-            </div>
-        </div>
 
         <!-- PROMO CODE BOX -->
         <div class="promo-box">
-            <div class="promo-title" id="promo-title">
-                🎁 Your Activation Code:
-            </div>
-
+            <div class="promo-title" id="promo-title">🎁 Tu Código de Acceso:</div>
             <div class="promo-code-row">
                 <div class="promo-code" id="promo-code">GANASOLES</div>
                 <button type="button" class="copy-btn" id="copy-btn">
-                    📋 <span id="copy-text">Copy</span>
+                    📋 <span id="copy-text">Copiar</span>
                 </button>
-            </div>
-        </div>
-
-        <!-- SHORT INSTRUCTION BLOCK -->
-        <div class="instruction-box">
-            <div class="instruction-title" id="inst-header">Quick Steps:</div>
-            <div class="instruction-steps" id="inst-steps">
-                <div><span>1.</span> Tap the activation button below</div>
-                <div><span>2.</span> Create a quick secure account</div>
-                <div><span>3.</span> Enter code <b>GANASOLES</b> to get bonus</div>
             </div>
         </div>
 
         <!-- MAIN BUTTON -->
         <a href="#" id="offer-link" class="btn-main">
-            <span id="btn-text">ENTER PLATFORM NOW ➔</span>
+            <span id="btn-text">ACCEDER A LA PLATAFORMA ➔</span>
         </a>
 
         <!-- FOOTER LOW-PRIORITY INFO -->
         <div class="footer-info">
             <div class="footer-badges">
-                <span>⚡ Private Community</span>
-                <span>🔒 SSL Encrypted</span>
-                <span>⚡ Instant Access</span>
+                <span>🔒 SSL Seguro</span>
+                <span>⚡ Yape / BCP / Crypto</span>
+                <span>🔞 18+</span>
             </div>
             <div id="footer-text">
-                Access restricted to authorized members. Terms apply.
+                Acceso exclusivo. Juega con responsabilidad.
             </div>
         </div>
 
@@ -523,61 +369,42 @@
 
     <!-- TOAST POPUP NOTIFICATION -->
     <div id="toast-popup">
-        <div class="toast-icon">📋</div>
-        <div id="toast-message" class="toast-text"></div>
+        <div class="toast-text" id="toast-message"></div>
     </div>
 
     <script>
         const BASE_OFFER_URL = "https://one-vv3591.com/?open=register&p=tb2e";
         const promoCode = "GANASOLES";
         
-        let currentLang = "en";
+        let currentLang = "es";
 
-        /* DICTIONARY WITH FULL ENGLISH & SPANISH TRANSLATIONS */
         const i18n = {
             es: {
                 flag: "🇵🇪",
-                verified: "✓ Comunidad Oficial Verificada",
-                title: "Plataforma Privada y Estrategia",
-                subtitle: '¡Bienvenido! Conéctate a la plataforma privada y utiliza el código <span class="highlight-green">GANASOLES</span> para activar tus beneficios de bienvenida.',
-                methodsTitle: "⚡ Ventajas de la Plataforma:",
-                feat1: "🚀 Sistema Inteligente",
-                feat2: "🔒 Conexión Segura",
-                feat3: "📲 Soporte 24/7",
-                promoTitle: "🎁 Tu Código de Activación:",
+                verified: "✓ Canal Oficial Perú",
+                title: "La Plataforma que Cambió mi Vida",
+                subtitle: 'De cero a la libertad financiera. Usa el código <span class="highlight-green">GANASOLES</span> para activar tu bono inicial.',
+                promoTitle: "🎁 Tu Código de Acceso:",
                 copy: "Copiar",
                 copied: "Copiado",
                 toastCopied: "¡Código <span class='highlight'>GANASOLES</span> copiado!",
-                instHeader: "Pasos Rápidos:",
-                step1: "Toca el botón de activación abajo",
-                step2: "Crea una cuenta segura y rápida",
-                step3: "Ingresa el código <b>GANASOLES</b> y obtén tu bono",
-                btn: "ENTRAR A LA PLATAFORMA AHORA ➔",
-                footer: "Acceso reservado a miembros autorizados. Aplican términos."
+                btn: "ACCEDER A LA PLATAFORMA ➔",
+                footer: "Acceso exclusivo. Juega con responsabilidad."
             },
             en: {
                 flag: "🌐",
-                verified: "✓ Verified Community Hub",
-                title: "Private Community & Strategy Hub",
-                subtitle: 'Welcome! Connect to the private platform, use code <span class="highlight-green">GANASOLES</span> to activate your welcome bonuses.',
-                methodsTitle: "⚡ Platform Highlights:",
-                feat1: "🚀 Smart System",
-                feat2: "🔒 Secure Connection",
-                feat3: "📲 24/7 Support",
-                promoTitle: "🎁 Your Activation Code:",
+                verified: "✓ Official Hub",
+                title: "The System That Changed My Life",
+                subtitle: 'From zero to financial freedom. Use code <span class="highlight-green">GANASOLES</span> to activate your initial bonus.',
+                promoTitle: "🎁 Your Access Code:",
                 copy: "Copy",
                 copied: "Copied",
                 toastCopied: "Code <span class='highlight'>GANASOLES</span> copied!",
-                instHeader: "Quick Steps:",
-                step1: "Tap the activation button below",
-                step2: "Create a quick secure account",
-                step3: "Enter code <b>GANASOLES</b> to get bonus",
-                btn: "ENTER PLATFORM NOW ➔",
-                footer: "Access restricted to authorized members. Terms apply."
+                btn: "ACCESS PLATFORM NOW ➔",
+                footer: "Exclusive access. Play responsibly."
             }
         };
 
-        /* UTM PARSER */
         function setupRefLinkWithUTM() {
             const currentParams = new URLSearchParams(window.location.search);
             const targetUrl = new URL(BASE_OFFER_URL);
@@ -587,7 +414,6 @@
             document.getElementById("offer-link").href = targetUrl.toString();
         }
 
-        /* LANGUAGE SWITCHING */
         function switchLang(lang) {
             currentLang = lang;
             document.getElementById("btn-es").classList.toggle("active", lang === 'es');
@@ -598,26 +424,12 @@
             document.getElementById("verified-text").textContent = t.verified;
             document.getElementById("main-title").textContent = t.title;
             document.getElementById("main-subtitle").innerHTML = t.subtitle;
-            document.getElementById("methods-title").textContent = t.methodsTitle;
-            document.getElementById("feat-1").textContent = t.feat1;
-            document.getElementById("feat-2").textContent = t.feat2;
-            document.getElementById("feat-3").textContent = t.feat3;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
-            
-            // Instruction update
-            document.getElementById("inst-header").textContent = t.instHeader;
-            document.getElementById("inst-steps").innerHTML = `
-                <div><span>1.</span> ${t.step1}</div>
-                <div><span>2.</span> ${t.step2}</div>
-                <div><span>3.</span> ${t.step3}</div>
-            `;
-
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("footer-text").textContent = t.footer;
         }
 
-        /* SHOW TOAST POPUP */
         function showToast(messageHtml) {
             const toast = document.getElementById("toast-popup");
             const toastMsg = document.getElementById("toast-message");
@@ -628,10 +440,9 @@
 
             setTimeout(() => {
                 toast.style.display = "none";
-            }, 2500);
+            }, 2000);
         }
 
-        /* COPY PROMO CODE */
         const copyButton = document.getElementById("copy-btn");
         async function copyPromoCode() {
             try {
@@ -656,15 +467,14 @@
             setTimeout(() => {
                 document.getElementById("copy-text").textContent = t.copy;
                 copyButton.classList.remove("copied");
-            }, 2200);
+            }, 2000);
         }
 
         copyButton.addEventListener("click", copyPromoCode);
 
-        /* INIT ON DOM READY */
         document.addEventListener("DOMContentLoaded", function () {
             setupRefLinkWithUTM();
-            switchLang("en"); // Английский по умолчанию
+            switchLang("es");
         });
     </script>
 
