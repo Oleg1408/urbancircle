@@ -71,13 +71,13 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 480px;
+            max-width: 440px;
             background: rgba(15, 18, 26, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.14);
             border-radius: 24px;
-            padding: 20px 16px;
+            padding: 24px 20px;
             text-align: center;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
@@ -91,19 +91,19 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 10px 14px;
             border-radius: 40px;
-            margin-bottom: 14px;
+            margin-bottom: 20px;
         }
 
         .author-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-align: left;
         }
 
         .author-avatar {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #00ff88;
@@ -111,16 +111,17 @@
         }
 
         .author-info h2 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
             color: #ffffff;
             line-height: 1.1;
         }
 
         .author-info p {
-            font-size: 11.5px;
+            font-size: 12px;
             color: #00ff88;
             font-weight: 600;
+            margin-top: 2px;
         }
 
         /* LANG SWITCHER */
@@ -150,21 +151,18 @@
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             line-height: 1.25;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #ffffff;
-            background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             color: #9ca3af;
-            font-size: 13.5px;
-            line-height: 1.45;
-            margin-bottom: 14px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
         .highlight-green {
@@ -172,85 +170,37 @@
             font-weight: 700;
         }
 
-        /* PAYMENT METHODS BADGES */
-        .payments-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 12px 10px;
-            margin-bottom: 14px;
-        }
-
-        .payments-title {
-            font-size: 11px;
-            color: #9ca3af;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .payments-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .pay-badge {
-            font-size: 12px;
-            font-weight: 800;
-            padding: 6px 12px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .pay-badge.hidden {
-            display: none !important;
-        }
-
-        .pay-yape { background: #74119B; color: #fff; }
-        .pay-plin { background: #00A9E0; color: #fff; }
-        .pay-bcp { background: #002D62; color: #FF6600; border: 1px solid rgba(255,255,255,0.15); }
-        .pay-visa { background: #1A1F71; color: #fff; }
-        .pay-mc { background: #EB001B; color: #F79E1B; }
-        .pay-crypto { background: #12181F; color: #00ff88; border: 1px solid rgba(0,255,136,0.3); }
-
         /* CLEAN PROMO BOX */
         .promo-box {
             background: linear-gradient(180deg, rgba(255, 204, 0, 0.08) 0%, rgba(255, 204, 0, 0.02) 100%);
             border: 1px dashed rgba(255, 204, 0, 0.5);
             border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 14px;
+            padding: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .promo-info {
+            text-align: left;
         }
 
         .promo-title {
             font-size: 11px;
-            color: #d1d5db;
+            color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
             font-weight: 700;
-        }
-
-        .promo-code-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+            margin-bottom: 2px;
         }
 
         .promo-code {
             color: #ffcc00;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             user-select: all;
-            text-shadow: 0 0 10px rgba(255, 204, 0, 0.35);
         }
 
         .copy-btn {
@@ -262,10 +212,11 @@
             border: 1px solid rgba(255, 204, 0, 0.7);
             color: #ffcc00;
             border-radius: 10px;
-            padding: 8px 16px;
+            padding: 10px 14px;
             font-size: 12px;
             font-weight: 800;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         .copy-btn.copied {
@@ -281,10 +232,10 @@
             align-items: center;
             gap: 8px;
             width: 100%;
-            padding: 16px 12px;
+            padding: 18px 12px;
             background: linear-gradient(135deg, #00ff88 0%, #00b359 100%);
             color: #04150c;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 900;
             text-decoration: none;
             border-radius: 16px;
@@ -294,7 +245,7 @@
             animation: pulse 2.5s infinite;
             border: none;
             cursor: pointer;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         @keyframes pulse {
@@ -309,7 +260,7 @@
             color: #6b7280;
             line-height: 1.3;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 10px;
+            padding-top: 12px;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -323,7 +274,7 @@
             color: #9ca3af;
         }
 
-        /* КРИТИЧЕСКИЙ АДАПТИВ ДЛЯ ВСЕХ МОБИЛЬНЫХ ТЕЛЕФОНОВ (Убираем рамку полностью) */
+        /* MOBIL ADAPTIVE */
         @media (max-width: 600px) {
             body {
                 padding: 0;
@@ -334,25 +285,15 @@
                 min-height: 100vh;
                 border-radius: 0;
                 border: none;
-                padding: 20px 16px;
+                padding: 24px 16px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 box-shadow: none;
             }
-            h1 {
-                font-size: 21px;
-            }
-            .promo-code {
-                font-size: 24px;
-            }
-            .btn-main {
-                font-size: 16px;
-                padding: 18px 12px;
-            }
         }
 
-        /* TOAST POPUP NOTIFICATION */
+        /* TOAST NOTIFICATION */
         #toast-popup {
             position: fixed !important;
             bottom: 20px !important;
@@ -393,7 +334,7 @@
     <div class="card">
 
         <div>
-            <!-- HEADER & LANG SWITCHER -->
+            <!-- AUTHOR HEADER & LANG SWITCHER -->
             <div class="author-box">
                 <div class="author-left">
                     <img src="paredez.png" alt="Diego Paredes" class="author-avatar">
@@ -408,47 +349,33 @@
                 </div>
             </div>
 
-            <h1 id="main-title">La Plataforma que Cambió mi Vida</h1>
+            <h1 id="main-title">Acceso Oficial</h1>
 
             <p class="subtitle" id="main-subtitle">
-                De cero a la libertad financiera. Usa el código <span class="highlight-green">GANASOLES</span> para activar tu bono inicial.
+                Haz clic en continuar para acceder a la plataforma y activar tu bono con el código <span class="highlight-green">GS2026</span>.
             </p>
-
-            <!-- PAYMENT METHODS BLOCK -->
-            <div class="payments-box">
-                <div class="payments-title" id="pay-title">💳 Métodos de Pago Habilitados:</div>
-                <div class="payments-grid">
-                    <span class="pay-badge pay-peru pay-yape">Yape</span>
-                    <span class="pay-badge pay-peru pay-plin">Plin</span>
-                    <span class="pay-badge pay-peru pay-bcp">BCP</span>
-                    <span class="pay-badge pay-visa">Visa</span>
-                    <span class="pay-badge pay-mc">Mastercard</span>
-                    <span class="pay-badge pay-crypto">Crypto</span>
-                </div>
-            </div>
 
             <!-- PROMO CODE BOX -->
             <div class="promo-box">
-                <div class="promo-title" id="promo-title">🎁 Tu Código de Acceso:</div>
-                <div class="promo-code-row">
-                    <div class="promo-code" id="promo-code">GANASOLES</div>
-                    <button type="button" class="copy-btn" id="copy-btn">
-                        📋 <span id="copy-text">Copiar</span>
-                    </button>
+                <div class="promo-info">
+                    <div class="promo-title" id="promo-title">Código Promo:</div>
+                    <div class="promo-code" id="promo-code-text">GS2026</div>
                 </div>
+                <button type="button" class="copy-btn" id="copy-btn">
+                    📋 <span id="copy-text">Copiar</span>
+                </button>
             </div>
 
             <!-- MAIN BUTTON -->
             <a href="#" id="offer-link" class="btn-main">
-                <span id="btn-text">ACCEDER A LA PLATAFORMA ➔</span>
+                <span id="btn-text">CONTINUAR ➔</span>
             </a>
         </div>
 
-        <!-- FOOTER LOW-PRIORITY INFO -->
+        <!-- FOOTER INFO -->
         <div class="footer-info">
             <div class="footer-badges">
                 <span id="foot-badge-1">🔒 SSL Seguro</span>
-                <span id="foot-badge-2">⚡ Retiros Instantáneos</span>
                 <span>🔞 18+</span>
             </div>
             <div id="footer-text">
@@ -458,14 +385,14 @@
 
     </div>
 
-    <!-- TOAST POPUP NOTIFICATION -->
+    <!-- TOAST POPUP -->
     <div id="toast-popup">
         <div class="toast-text" id="toast-message"></div>
     </div>
 
     <script>
         const BASE_OFFER_URL = "https://one-vv3591.com/?open=register&p=tb2e";
-        const promoCode = "GANASOLES";
+        const promoCode = "GS2026";
         
         let currentLang = "es";
 
@@ -473,31 +400,27 @@
             es: {
                 flag: "🇵🇪",
                 verified: "✓ Canal Oficial Perú",
-                title: "La Plataforma que Cambió mi Vida",
-                subtitle: 'De cero a la libertad financiera. Usa el código <span class="highlight-green">GANASOLES</span> para activar tu bono inicial.',
-                payTitle: "💳 Métodos de Pago Habilitados:",
-                promoTitle: "🎁 Tu Código de Acceso:",
+                title: "Acceso Oficial",
+                subtitle: "Haz clic en continuar para acceder a la plataforma y activar tu bono con el código <span class='highlight-green'>GS2026</span>.",
+                promoTitle: "Código Promo:",
                 copy: "Copiar",
                 copied: "Copiado",
-                toastCopied: "¡Código <span class='highlight'>GANASOLES</span> copiado!",
-                btn: "ACCEDER A LA PLATAFORMA ➔",
+                toastCopied: "¡Código <span class='highlight'>GS2026</span> copiado!",
+                btn: "CONTINUAR ➔",
                 footBadge1: "🔒 SSL Seguro",
-                footBadge2: "⚡ Retiros Instantáneos",
                 footer: "Acceso exclusivo. Juega con responsabilidad."
             },
             en: {
                 flag: "🌐",
-                verified: "✓ Official Community Hub",
-                title: "The System That Changed My Life",
-                subtitle: 'From zero to financial freedom. Use code <span class="highlight-green">GANASOLES</span> to activate your initial bonus.',
-                payTitle: "💳 Supported Payment Methods:",
-                promoTitle: "🎁 Your Access Code:",
+                verified: "✓ Official Hub",
+                title: "Official Access",
+                subtitle: "Click continue to access the platform and activate your bonus using code <span class='highlight-green'>GS2026</span>.",
+                promoTitle: "Promo Code:",
                 copy: "Copy",
                 copied: "Copied",
-                toastCopied: "Code <span class='highlight'>GANASOLES</span> copied!",
-                btn: "ACCESS PLATFORM NOW ➔",
-                footBadge1: "🔒 SSL Encrypted",
-                footBadge2: "⚡ Instant Withdrawals",
+                toastCopied: "Code <span class='highlight'>GS2026</span> copied!",
+                btn: "CONTINUE ➔",
+                footBadge1: "🔒 SSL Secure",
                 footer: "Exclusive access. Play responsibly."
             }
         };
@@ -521,22 +444,11 @@
             document.getElementById("verified-text").textContent = t.verified;
             document.getElementById("main-title").textContent = t.title;
             document.getElementById("main-subtitle").innerHTML = t.subtitle;
-            document.getElementById("pay-title").textContent = t.payTitle;
             document.getElementById("promo-title").textContent = t.promoTitle;
             document.getElementById("copy-text").textContent = t.copy;
             document.getElementById("btn-text").textContent = t.btn;
             document.getElementById("foot-badge-1").textContent = t.footBadge1;
-            document.getElementById("foot-badge-2").textContent = t.footBadge2;
             document.getElementById("footer-text").textContent = t.footer;
-
-            const peruBadges = document.querySelectorAll(".pay-peru");
-            peruBadges.forEach(badge => {
-                if (lang === "en") {
-                    badge.classList.add("hidden");
-                } else {
-                    badge.classList.remove("hidden");
-                }
-            });
         }
 
         function showToast(messageHtml) {
