@@ -170,13 +170,13 @@
             font-weight: 700;
         }
 
-        /* COMPACT PROMO BOX */
+        /* CLEAN SOLID PROMO BOX (УБРАН ПУНКTИР, СДЕЛАНО СТИЛЬНО) */
         .promo-box {
-            background: rgba(255, 204, 0, 0.05);
-            border: 1px dashed rgba(255, 204, 0, 0.4);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 14px;
-            padding: 8px 12px;
-            margin-bottom: 10px; /* Прижали близко к кнопке */
+            padding: 10px 14px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -185,7 +185,7 @@
         .promo-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .promo-title {
@@ -197,14 +197,14 @@
 
         .promo-code {
             color: #ffcc00;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 900;
             letter-spacing: 1px;
         }
 
         .copy-btn {
-            background: rgba(255, 204, 0, 0.15);
-            border: 1px solid rgba(255, 204, 0, 0.6);
+            background: rgba(255, 204, 0, 0.12);
+            border: 1px solid rgba(255, 204, 0, 0.4);
             color: #ffcc00;
             border-radius: 8px;
             padding: 6px 12px;
@@ -244,7 +244,7 @@
             overflow: hidden;
         }
 
-        /* Световой блик по кнопке каждые 3 секунды */
+        /* Световой блик по кнопке */
         .btn-main::after {
             content: '';
             position: absolute;
@@ -274,7 +274,7 @@
             100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
-        /* FULL MOBILE ADAPTIVE (100% SCREEN) */
+        /* FULL MOBILE ADAPTIVE */
         @media (max-width: 600px) {
             body {
                 padding: 0;
@@ -287,7 +287,7 @@
                 padding: 32px 20px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center; /* Центрируем весь контент по вертикали */
+                justify-content: center;
                 box-shadow: none;
             }
             h1 {
@@ -361,7 +361,7 @@
                 Haz clic en continuar para acceder a la plataforma y activar tu bono con el código <span class="highlight-green">GS2026</span>.
             </p>
 
-            <!-- COMPACT PROMO CODE BOX -->
+            <!-- CLEAN SOLID PROMO BOX -->
             <div class="promo-box">
                 <div class="promo-left">
                     <span class="promo-title" id="promo-title">Código:</span>
